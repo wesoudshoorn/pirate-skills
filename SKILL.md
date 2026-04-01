@@ -17,7 +17,7 @@ allowed-tools:
   - WebFetch
 ---
 
-## Step 1: Quick Start
+## Step 1: Page Type First
 
 Check for existing positioning data:
 
@@ -29,69 +29,78 @@ Check for existing positioning data:
 **If `piratepage.json` exists:** Greet by product name. Show what's been generated. Ask:
 "Want to create a new page, iterate on the existing one, or update your positioning?"
 
-**If no `piratepage.json`:** Jump straight to the action. Ask TWO things at once via AskUserQuestion:
+**If no `piratepage.json`:** Start with the most important question first via AskUserQuestion:
 
-"Let's build your landing page. Two quick questions:
+"What kind of page are we building?
 
-1. What kind of page?
-   A) Homepage — the full story, 6-10 sections
-   B) Product page — deep feature showcase
-   C) Service page — trust-first, process-focused
-   D) Pricing page — plans front and center
+A) Homepage — the full story: what it is, why it matters, proof, CTA (6-10 sections)
+B) Product page — deep feature showcase (6-8 sections)
+C) Service page — trust-first, process-focused (5-7 sections)
+D) Pricing page — plans front and center (4-6 sections)"
 
-2. Paste your URL (or describe your product in one sentence). I'll scrape it and generate a first draft."
-
-This gets page type + product context in a single interaction. Fast.
+This gives you context for everything that follows. Don't bury it after 9 questions.
 
 ---
 
-## Step 2: Language Detection
+## Step 2: URL + Language
 
-After getting the URL or description, detect the language:
-- If the URL content is non-English, ask: "Your site is in [language]. Should I generate the page in [language] or English?"
-- If the user described the product in a non-English language, match that language.
-- Default to English if unclear.
+After page type is chosen, ask via AskUserQuestion:
 
-When generating in a non-English language: write natively in that language. Do not translate from English. JSON keys stay English, all visible copy in the target language.
+"Paste your URL (or describe your product in a few sentences). I'll scrape it and pre-fill your positioning answers."
 
----
+If URL provided: WebFetch and extract positioning. If WebFetch fails: "Couldn't scrape that URL. Describe your product in a few sentences instead."
 
-## Step 3: Fast First Draft
+**Language confirmation:** After scraping (or reading the user's description), always confirm the language:
 
-**The goal: show the user something in under 2 minutes.** Don't gate on perfect positioning. Generate a draft from whatever you have.
+"Your site is in [detected language]. Want me to generate the page in [detected language]?"
 
-1. If URL provided: WebFetch and extract positioning (product description, features, target audience, CTA, differentiators). If WebFetch fails: "Couldn't scrape that URL. No worries, describe your product in a few sentences."
+Options: A) Yes, [detected language]. B) No, use English. C) Other (let the user type their preferred language).
 
-2. From the extracted content or description, fill the 9 positioning fields as best guesses. Do NOT ask 9 questions yet. Just guess intelligently.
+If no language was detected (e.g., user gave a short English description), default to English without asking.
 
-3. Select sections based on page type and the Section Selection Guide below.
-
-4. Generate the outline (don't ask for approval yet), then generate the full HTML page immediately.
-
-5. Open in browser and present: "Here's your first draft. It's based on what I scraped from your site. Now let's make it better."
+When generating in a non-English language: write natively. Do not translate from English. JSON keys stay English, all visible copy in the target language.
 
 ---
 
-## Step 4: Refinement Wizard
+## Step 3: The 9 Positioning Questions (the forcing function)
 
-After the first draft is shown, walk through positioning refinement. Present each field with the pre-filled value:
+This is the core of PiratePage. These questions force you to think through positioning before any copy is generated. You can't skip them. They're what makes the output good.
 
-"I made some assumptions from your site. Let's check them. For each one: confirm, tweak, or rewrite."
+From the extracted URL content or description, pre-fill all 9 answers as best guesses. Then walk through each one via AskUserQuestion, one at a time:
 
-The 9 positioning questions (one at a time via AskUserQuestion):
-1. **What is your product?**
-2. **What is it NOT?**
-3. **Key takeaway?** If a visitor remembers ONE thing.
+"I scraped your site and pre-filled these answers. For each one: confirm it's right, tweak it, or rewrite it."
+
+For each question, present the pre-filled answer with options:
+A) This is right
+B) Close but needs tweaking (tell me what to change)
+C) Completely wrong, let me rewrite
+
+The 9 questions:
+1. **What is your product?** A brief, plain-language description.
+2. **What is it NOT?** Common misconceptions, what to clarify.
+3. **Key takeaway?** If a visitor remembers ONE thing, what should it be?
 4. **Word of mouth?** How would an excited user describe it to a friend?
 5. **Competitors?** Direct, indirect, and "doing it manually."
-6. **How are you different?**
+6. **How are you different?** Specific differences, not generic claims.
 7. **Why do users want this?** What progress are they trying to make?
 8. **Objections/fears?** Hesitations at signup/purchase.
 9. **Primary CTA?** What should they do next?
 
 Then voice: "How should the copy sound? Casual / Professional / Bold / Understated / Playful / Serious. Any rules to always follow or never break?"
 
-Save everything to `piratepage.json`. Then regenerate the page with the refined positioning. Show the before/after improvement.
+Save everything to `piratepage.json`.
+
+---
+
+## Step 4: Outline + Generation
+
+Now you have page type, language, and validated positioning. Generate the page.
+
+1. Build a section outline based on page type + Section Selection Guide below.
+2. Present the outline with "generation choices" explaining WHY each section was picked.
+3. Ask for approval: A) Generate it. B) Change something. C) Different page type.
+4. Generate the full HTML, run quality checks, open in browser.
+5. Present: "Here's your page. Want to iterate?"
 
 ---
 
