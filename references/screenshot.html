@@ -1,0 +1,107 @@
+<!--
+  SCREENSHOT SECTION REFERENCE
+  =============================
+  HTML patterns for product screenshot sections. Shows the interface with
+  optional benefit callouts below. Read this file to understand the available
+  structures, then generate actual content for the user's product by replacing
+  {placeholder} tokens with real copy.
+
+  Design system: Tailwind CSS v4. Black/neutral palette. No gradients,
+  no shadows, no decorative color. Clean and typographic.
+
+  CONTENT SCHEMA
+  ==============
+  Required:
+    headline   — Section headline. Describe what the screenshot shows or why it matters.
+    image      — Description of what the screenshot shows. A designer will replace
+                 the placeholder with a real product image.
+
+  Optional:
+    description — 1-2 sentences of supporting copy below the headline.
+    benefits    — Array<{ title: string, description: string }> — 2-3 items.
+                  Short benefit callouts that annotate or explain the screenshot.
+                  Use when the UI isn't self-explanatory.
+
+  VARIANT SELECTION GUIDE
+  =======================
+  default         — Centered headline and description, then a full-width screenshot.
+                    Use when the product UI speaks for itself. Let the screenshot do
+                    the heavy lifting.
+  with-benefits   — Screenshot above, then a 3-column benefit grid below.
+                    Use when the UI needs annotation, or when 2-3 features shown in
+                    the screenshot deserve callouts.
+
+  WRITING NOTES
+  =============
+  - The headline should describe the VALUE of what's shown, not just the feature.
+    Good: "Every decision, one place"  Bad: "The dashboard"
+  - Benefits (if used) should be short — title + 1 sentence. Not full paragraphs.
+  - The screenshot placeholder should describe what a designer will actually show,
+    e.g. "dashboard with active project list" not just "screenshot".
+-->
+
+
+<!-- ============================================================
+     VARIANT 1: default
+     Centered headline and description above a full-width screenshot.
+     Use when the UI speaks for itself.
+     ============================================================ -->
+<section class="py-8 md:py-12">
+
+  <!-- Centered copy: headline and optional description -->
+  <div class="max-w-2xl mb-10">
+    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black text-balance">{headline}</h2>
+    <p class="mt-4 text-lg text-neutral-600 text-balance">{description}</p>
+  </div>
+
+  <!-- Full-width screenshot placeholder. Aspect ratio approximately 16:9. -->
+  <!-- A designer will replace this with an actual <img> or <video> tag. -->
+  <div class="bg-neutral-100 rounded-2xl min-h-[400px] flex items-center justify-center text-neutral-400 text-sm border border-neutral-200">
+    [img: {image}]
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     VARIANT 2: with-benefits
+     Screenshot above, benefit callouts below.
+     Use when the UI needs annotation or features need naming.
+     ============================================================ -->
+<section class="py-8 md:py-12">
+
+  <!-- Centered copy: headline and optional description -->
+  <div class="max-w-2xl mb-10">
+    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black text-balance">{headline}</h2>
+    <p class="mt-4 text-lg text-neutral-600 text-balance">{description}</p>
+  </div>
+
+  <!-- Full-width screenshot placeholder -->
+  <div class="bg-neutral-100 rounded-2xl min-h-[400px] flex items-center justify-center text-neutral-400 text-sm border border-neutral-200 mb-10">
+    [img: {image}]
+  </div>
+
+  <!-- Benefit callouts below the screenshot: 2-3 items -->
+  <!-- Adjust grid-cols to match number of benefits (2 or 3). -->
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div>
+      <h3 class="font-semibold text-black mb-1">{benefits[0].title}</h3>
+      <p class="text-sm text-neutral-600 leading-relaxed">{benefits[0].description}</p>
+    </div>
+
+    <div>
+      <h3 class="font-semibold text-black mb-1">{benefits[1].title}</h3>
+      <p class="text-sm text-neutral-600 leading-relaxed">{benefits[1].description}</p>
+    </div>
+
+    <div>
+      <h3 class="font-semibold text-black mb-1">{benefits[2].title}</h3>
+      <p class="text-sm text-neutral-600 leading-relaxed">{benefits[2].description}</p>
+    </div>
+
+    <!-- For 2 benefits: use grid md:grid-cols-2 and remove the third div. -->
+
+  </div>
+
+</section>
