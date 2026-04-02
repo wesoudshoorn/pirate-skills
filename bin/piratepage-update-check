@@ -1,0 +1,106 @@
+#!/bin/bash
+# piratepage-update-check — lightweight update checker
+# Output: JUST_UPGRADED <old> <new> | UPGRADE_AVAILABLE <old> <new> | (nothing)
+set -e
+
+# Find skill directory (parent of bin/)
+SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+STATE_DIR="$HOME/.piratepage"
+REMOTE_URL="https://raw.githubusercontent.com/wesoudshoorn/pirate-skills/main/VERSION"
+
+# Bail if disabled
+[ "${PIRATEPAGE_NO_UPDATE:-}" = "1" ] && exit 0
+[ -f "$STATE_DIR/updates-disabled" ] && exit 0
+
+# Read local version
+LOCAL_VERSION="$(cat "$SKILL_DIR/VERSION" 2>/dev/null | tr -d '[:space:]')"
+[ -z "$LOCAL_VERSION" ] && exit 0
+
+# Check just-upgraded marker
+if [ -f "$STATE_DIR/just-upgraded-from" ]; then
+  OLD_VERSION="$(cat "$STATE_DIR/just-upgraded-from" | tr -d '[:space:]')"
+  rm -f "$STATE_DIR/just-upgraded-from"
+  echo "JUST_UPGRADED $OLD_VERSION $LOCAL_VERSION"
+  exit 0
+fi
+
+# Check cache freshness (mtime-based TTL)
+if [ -f "$STATE_DIR/last-update-check" ]; then
+  CACHED="$(cat "$STATE_DIR/last-update-check")"
+  CACHED_STATUS="$(echo "$CACHED" | cut -d' ' -f1)"
+
+  # TTL: 60min for UP_TO_DATE, 720min for UPGRADE_AVAILABLE
+  if [ "$CACHED_STATUS" = "UP_TO_DATE" ]; then
+    TTL_SECONDS=3600
+  else
+    TTL_SECONDS=43200
+  fi
+
+  FILE_AGE=$(( $(date +%s) - $(stat -f %m "$STATE_DIR/last-update-check" 2>/dev/null || stat -c %Y "$STATE_DIR/last-update-check" 2>/dev/null || echo 0) ))
+
+  if [ "$FILE_AGE" -lt "$TTL_SECONDS" ]; then
+    # Cache is fresh — output if upgrade available (after snooze check)
+    if [ "$CACHED_STATUS" = "UPGRADE_AVAILABLE" ]; then
+      # Check snooze
+      if [ -f "$STATE_DIR/update-snoozed" ]; then
+        SNOOZE_VERSION="$(awk '{print $1}' "$STATE_DIR/update-snoozed")"
+        SNOOZE_LEVEL="$(awk '{print $2}' "$STATE_DIR/update-snoozed")"
+        SNOOZE_EPOCH="$(awk '{print $3}' "$STATE_DIR/update-snoozed")"
+        NOW="$(date +%s)"
+
+        # Escalating backoff: level 1=24h, 2=48h, 3+=7d
+        case "$SNOOZE_LEVEL" in
+          1) SNOOZE_TTL=86400 ;;
+          2) SNOOZE_TTL=172800 ;;
+          *) SNOOZE_TTL=604800 ;;
+        esac
+
+        REMOTE_VERSION="$(echo "$CACHED" | awk '{print $3}')"
+        # New version resets snooze
+        if [ "$SNOOZE_VERSION" = "$REMOTE_VERSION" ] && [ $(( NOW - SNOOZE_EPOCH )) -lt "$SNOOZE_TTL" ]; then
+          exit 0  # Still snoozed
+        fi
+      fi
+      echo "$CACHED"
+    fi
+    exit 0
+  fi
+fi
+
+# Cache miss — fetch remote version
+REMOTE_VERSION="$(curl -sf --max-time 5 "$REMOTE_URL" 2>/dev/null | tr -d '[:space:]')" || true
+
+# Validate response looks like a version
+if [ -z "$REMOTE_VERSION" ] || ! echo "$REMOTE_VERSION" | grep -qE '^[0-9]+\.[0-9]+'; then
+  exit 0  # Bad response, skip silently
+fi
+
+# Compare versions
+mkdir -p "$STATE_DIR"
+if [ "$REMOTE_VERSION" = "$LOCAL_VERSION" ]; then
+  echo "UP_TO_DATE $LOCAL_VERSION" > "$STATE_DIR/last-update-check"
+else
+  echo "UPGRADE_AVAILABLE $LOCAL_VERSION $REMOTE_VERSION" > "$STATE_DIR/last-update-check"
+
+  # Check snooze before outputting
+  if [ -f "$STATE_DIR/update-snoozed" ]; then
+    SNOOZE_VERSION="$(awk '{print $1}' "$STATE_DIR/update-snoozed")"
+    SNOOZE_LEVEL="$(awk '{print $2}' "$STATE_DIR/update-snoozed")"
+    SNOOZE_EPOCH="$(awk '{print $3}' "$STATE_DIR/update-snoozed")"
+    NOW="$(date +%s)"
+
+    case "$SNOOZE_LEVEL" in
+      1) SNOOZE_TTL=86400 ;;
+      2) SNOOZE_TTL=172800 ;;
+      *) SNOOZE_TTL=604800 ;;
+    esac
+
+    if [ "$SNOOZE_VERSION" = "$REMOTE_VERSION" ] && [ $(( NOW - SNOOZE_EPOCH )) -lt "$SNOOZE_TTL" ]; then
+      exit 0  # Still snoozed
+    fi
+    # New version or snooze expired — reset snooze
+    rm -f "$STATE_DIR/update-snoozed"
+  fi
+
+  echo "UPGRADE_AVAILABLE $LOCAL_VERSION $REMOTE_VERSION"
+fi
