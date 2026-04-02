@@ -211,29 +211,31 @@ When building an outline, choose from these. The skill has HTML reference files 
 
 ### Variant Selection Rules
 
+**Default to the richest variant.** Screenshot placeholders, images, and visual elements make pages more compelling. Only choose a simpler variant when the product genuinely has nothing visual to show. When in doubt, include a screenshot placeholder — it's always better than a text-only section.
+
 **Hero:**
-- Product has a UI/screenshots → `with-screenshot`
-- Strong testimonial available → `with-proof`
-- Multiple distinct benefits → `with-checklist`
-- Strong visual/illustration → `with-image`
-- None of the above → `default`
+- Default: `with-screenshot` (generate screenshot placeholder wireframe)
+- Only fall back when:
+  - Product has no UI at all (pure service/consultancy) → `with-checklist` or `with-proof`
+  - Strong testimonial is the #1 selling asset → `with-proof`
+- `default` (text-only) should almost never be chosen
 
 **Features-grid:**
-- 4-6 features with images/screenshots → `bento` (always include screenshot placeholders in bento)
-- 6+ features, no images → `icon-grid`
-- Features have demos/screenshots → `showcase`
-- Complex features needing focus → `tabs`
-- Simple 3-column list → `default`
+- Default: `bento` with screenshot placeholders — this is the right choice most of the time
+- Only fall back when:
+  - 6+ features that are all brief/equal weight → `icon-grid`
+  - Complex features needing sequential focus → `tabs`
+- `default` (plain grid, no images) should almost never be chosen
 
 **How-it-works:**
-- Product has a UI → always use `with-images` (include screenshot placeholders)
-- No visual product → `default`
+- Default: `with-images` (include screenshot placeholders per step)
+- Only fall back to `default` for non-visual products (pure consulting, abstract services)
 
 ### Page Type Templates
 
 **Homepage** (6-10 sections):
-MUST: hero, 1-2 feature sections (40-60% of page), cta
-SHOULD: pain OR how-it-works, social-proof (logo bar), testimonials, faq
+MUST: hero (with-screenshot preferred), 1-2 feature sections (40-60% of page, bento preferred), cta
+SHOULD: pain OR how-it-works (with-images preferred), social-proof (logo bar), testimonials, faq
 RECOMMENDED: Include `social-proof` with 4-6 recognizable logos or trust badges after the hero or after testimonials.
 
 **Product Page** (6-8 sections):
@@ -242,7 +244,7 @@ SHOULD: how-it-works (with-images), testimonials or stats
 SKIP: pain
 
 **Service Page** (5-7 sections):
-MUST: hero, how-it-works, cta
+MUST: hero, how-it-works (with-images preferred), cta
 SHOULD: testimonials or results, features-list
 SKIP: features-grid, pricing
 
