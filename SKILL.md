@@ -583,7 +583,7 @@ Adapt the options to the product. A dev tool shouldn't get "Warm & Approachable.
 
 **Each section is its own room.** Alternate section backgrounds so sections feel distinct. The palette: `white`, `neutral-50`, off-black (`dark-950`), and optionally ONE section in `brand-50`. Give sections generous vertical spacing: `py-24 md:py-32`. Never place `brand-50` next to `neutral-50` — the two light tints look muddy together. Always separate them with a `white` or `dark` section between them.
 
-**Typography does the heavy lifting.** The display font must be legible at large sizes, not just "interesting." Hero headlines use `clamp(2.5rem, 5vw, 4.5rem)` and should fill 2 lines, not 3. Section headlines use `clamp(1.75rem, 3.5vw, 3rem)`. Use CSS `<style>` for clamp values. Container: `max-w-7xl`, hero headline area: `max-w-4xl`.
+**Typography does the heavy lifting.** The display font must be legible at large sizes, not just "interesting." Hero headlines use `clamp(2.5rem, 5vw, 4.5rem)` and should fill 2 lines, not 3. Section headlines use `clamp(1.75rem, 3.5vw, 3rem)`. Use CSS `<style>` for clamp values. Container: `max-w-7xl`, hero headline area: `max-w-4xl`. Always add `text-balance` to headlines so line breaks distribute evenly.
 
 **Brand color is rare, so it pops.** On light backgrounds, brand color appears ONLY on:
 - Eyebrow labels (the small uppercase text above headlines)
