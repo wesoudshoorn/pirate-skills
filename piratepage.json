@@ -1,0 +1,29 @@
+{
+  "productName": "TalkJS",
+  "pageType": "homepage",
+  "language": "en",
+  "voice": "Professional",
+  "positioning": {
+    "whatIsIt": "A chat API and SDK that lets developers add production-ready in-app messaging (1-on-1, group, public) in minutes — with pre-built UI components and SDKs for 14+ frameworks.",
+    "whatIsItNot": "Not a standalone chat app. Not a basic widget. It's full messaging infrastructure with customizable UI, moderation, AI bot support, and enterprise-grade security.",
+    "keyTakeaway": "Ship in-app chat in minutes instead of months. Pre-built UIs you can customize to look exactly like your product.",
+    "wordOfMouth": "We dropped months of dev time using their pre-built chat UIs, and we could still make it look exactly like our product.",
+    "competitors": "Direct: Stream Chat, Twilio, Firebase. Indirect: building chat from scratch in-house. Manual: stitching together WebSocket servers, databases, and UI from scratch.",
+    "howDifferent": "Pre-built pixel-perfect UI components across 14+ frameworks. AI-ready bot integration. 130M+ monthly messages, 24B+ API calls at scale. GDPR-compliant, TLS v1.3, 99.9% uptime SLA.",
+    "whyUsersWant": "Launch chat features fast without building from scratch. Marketplace buyer-seller messaging. White-label chat for SaaS. AI chatbot integration. Global scale without infrastructure headaches.",
+    "objections": "Will it look like our product or generic? Can it handle our scale? Is the data secure/GDPR compliant? How hard is integration with our stack? What happens if we outgrow the free tier?",
+    "primaryCTA": "Try for free"
+  },
+  "outline": [
+    { "section": "hero", "variant": "with-screenshot" },
+    { "section": "social-proof", "variant": "default" },
+    { "section": "pain", "variant": "before-after" },
+    { "section": "features-grid", "variant": "bento" },
+    { "section": "how-it-works", "variant": "with-images" },
+    { "section": "testimonials", "variant": "with-results" },
+    { "section": "faq", "variant": "default" },
+    { "section": "cta", "variant": "with-proof" }
+  ],
+  "generatedAt": "2026-04-02",
+  "mode": "fast"
+}

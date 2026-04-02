@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalkJS — Ship in-app chat in minutes, not months</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+</head>
+<body class="antialiased bg-white text-neutral-900">
+  <div class="min-h-screen">
+    <div class="max-w-5xl mx-auto px-8 py-8 space-y-16">
+
+
+      <!-- ============================================================
+           HERO — with-screenshot
+           ============================================================ -->
+      <section class="py-8 md:py-12">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <p class="text-sm font-medium uppercase tracking-wider text-neutral-500 mb-3">CHAT API FOR 14+ FRAMEWORKS</p>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-black mb-6 text-balance">Drop months of chat development. Ship messaging today.</h1>
+          <p class="text-xl text-neutral-600 mb-8 text-balance">TalkJS gives you pre-built chat UI components and a real-time messaging API. Add 1-on-1, group, and marketplace chat to your app — with full control over every pixel.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://talkjs.com/dashboard/signup" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-lg hover:bg-neutral-800 transition-colors">Try TalkJS Free</a>
+            <a href="https://talkjs.com/docs/" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-black border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors">Read the Docs</a>
+          </div>
+          <div class="mt-6 flex justify-center">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-neutral-500">
+              130M+ messages/month &middot; 90+ countries &middot; 99.9% uptime SLA
+            </div>
+          </div>
+        </div>
+
+        <!-- Mock screenshot placeholder -->
+        <div class="bg-neutral-100 rounded-2xl overflow-hidden">
+          <div class="bg-neutral-200 h-8 flex items-center px-3 gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+            <div class="flex-1 mx-8 h-3.5 bg-neutral-300 rounded"></div>
+          </div>
+          <div class="p-6 min-h-[400px] flex items-center justify-center text-neutral-400 text-sm">
+            [img: TalkJS chat inbox UI — conversation list on the left, active chat thread on the right with message bubbles, typing indicator, and file attachment options]
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           SOCIAL PROOF — logos-only
+           ============================================================ -->
+      <section class="py-8 md:py-12">
+        <p class="text-sm font-medium text-neutral-400 mb-6">Trusted by product teams at</p>
+        <div class="flex flex-wrap items-center gap-6">
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">Decathlon</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">Hyundai</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">Riot Games</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">British Gas</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">EliseAI</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">VU Amsterdam</div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           PAIN — before-after
+           ============================================================ -->
+      <section class="py-8 md:py-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4 text-balance">You already know what building chat from scratch looks like</h2>
+        <p class="text-lg text-neutral-600 mb-8 text-balance">WebSocket servers, message persistence, read receipts, typing indicators, file uploads, moderation, multi-tenancy. It never ends.</p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+          <!-- Before column -->
+          <div class="bg-neutral-50 rounded-2xl p-8">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-400 mb-6">BUILDING IN-HOUSE</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-neutral-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                <span class="text-neutral-600">3-6 months building real-time infrastructure before any user sees it</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-neutral-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                <span class="text-neutral-600">Scaling WebSocket connections becomes a full-time job</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-neutral-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                <span class="text-neutral-600">Every edge case — offline sync, message ordering, presence — is your problem</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-neutral-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                <span class="text-neutral-600">GDPR compliance and data security fall on your team</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- After column -->
+          <div class="bg-neutral-900 rounded-2xl p-8">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-neutral-500 mb-6">WITH TALKJS</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-neutral-300 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                </svg>
+                <span class="text-neutral-300">Pre-built chat UI running in your app in minutes</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-neutral-300 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                </svg>
+                <span class="text-neutral-300">24B+ API calls/month — scaling is handled</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-neutral-300 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                </svg>
+                <span class="text-neutral-300">Read receipts, typing indicators, presence, file sharing — all included</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-neutral-300 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                </svg>
+                <span class="text-neutral-300">GDPR-compliant, TLS v1.3 encryption, 99.9% uptime SLA</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           FEATURES GRID — bento
+           ============================================================ -->
+      <section class="py-8 md:py-12">
+        <div class="mb-10">
+          <p class="text-sm font-medium uppercase tracking-wider text-neutral-500 mb-2">REACT, FLUTTER, ANGULAR, VUE + 10 MORE</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black text-balance">Every messaging feature your users expect, pre-built</h2>
+          <p class="mt-3 text-lg text-neutral-600 text-balance max-w-2xl">Full-featured chat components with pixel-perfect customization. Works across 14+ frameworks so you don't rewrite for each platform.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <!-- Pair 1: wide left + narrow right -->
+          <div class="md:col-span-2 p-6 bg-neutral-50 rounded-2xl flex flex-col">
+            <h3 class="text-base font-semibold text-black mb-2">Pre-built, customizable chat UI</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed mb-4">Inbox, chatbox, and popup components that look native to your product. Full CSS control — match your brand without rebuilding from scratch.</p>
+            <!-- Mock screenshot -->
+            <div class="bg-neutral-100 rounded-xl overflow-hidden mt-auto">
+              <div class="bg-neutral-200 h-8 flex items-center px-3 gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                <div class="flex-1 mx-8 h-3.5 bg-neutral-300 rounded"></div>
+              </div>
+              <div class="p-6 min-h-[160px] flex items-center justify-center text-neutral-400 text-sm">
+                [img: TalkJS inbox component — conversation list with unread badges, search bar, and customized brand colors]
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-1 p-6 bg-neutral-50 rounded-2xl flex flex-col">
+            <h3 class="text-base font-semibold text-black mb-2">AI bot integration</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">Plug in virtual assistants and AI bots as conversation participants. Route conversations between bots and human agents without custom plumbing.</p>
+          </div>
+
+          <!-- Pair 2: narrow left + wide right -->
+          <div class="md:col-span-1 p-6 bg-neutral-50 rounded-2xl flex flex-col">
+            <h3 class="text-base font-semibold text-black mb-2">Real-time presence</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">Typing indicators, online/offline status, read receipts, and delivery confirmations. Users know exactly what's happening in every conversation.</p>
+          </div>
+
+          <div class="md:col-span-2 p-6 bg-neutral-50 rounded-2xl flex flex-col">
+            <h3 class="text-base font-semibold text-black mb-2">Marketplace-ready multi-tenancy</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed mb-4">Buyer-seller messaging, user roles, conversation access controls, and moderation tools. Built for platforms where multiple user types need to communicate securely.</p>
+            <!-- Mock screenshot -->
+            <div class="bg-neutral-100 rounded-xl overflow-hidden mt-auto">
+              <div class="bg-neutral-200 h-8 flex items-center px-3 gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                <div class="flex-1 mx-8 h-3.5 bg-neutral-300 rounded"></div>
+              </div>
+              <div class="p-6 min-h-[160px] flex items-center justify-center text-neutral-400 text-sm">
+                [img: Marketplace chat interface — buyer and seller conversation with order context panel, file sharing, and agent handoff option]
+              </div>
+            </div>
+          </div>
+
+          <!-- Full-width row -->
+          <div class="md:col-span-3 p-6 bg-neutral-50 rounded-2xl flex flex-col">
+            <h3 class="text-base font-semibold text-black mb-2">Moderation, search, and file sharing</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">Spam filtering, content moderation, message search across conversations, emoji reactions, link previews, voice messages, and file attachments — the features users expect are already there.</p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           HOW IT WORKS — with-images
+           ============================================================ -->
+      <section class="py-8 md:py-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4 text-balance">Three steps to chat in your app</h2>
+        <p class="text-lg text-neutral-600 mb-10 text-balance">From zero to production-ready messaging. No infrastructure to manage.</p>
+
+        <div class="space-y-12 max-w-2xl">
+
+          <div class="flex gap-6 items-start">
+            <div class="shrink-0">
+              <div class="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center text-lg font-bold text-black">1</div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base font-semibold text-black mb-2">Install the SDK for your framework</h3>
+              <p class="text-neutral-600 leading-relaxed mb-4">npm install, pip install, or add the CDN script. SDKs for React, Flutter, Angular, Vue, Next.js, Django, Laravel, Rails, Spring Boot, and more.</p>
+              <div class="bg-neutral-100 rounded-xl overflow-hidden">
+                <div class="bg-neutral-200 h-8 flex items-center px-3 gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="flex-1 mx-8 h-3.5 bg-neutral-300 rounded"></div>
+                </div>
+                <div class="p-6 min-h-[120px] flex items-center justify-center text-neutral-400 text-sm">
+                  [img: Terminal showing npm install talkjs and a few lines of initialization code]
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="shrink-0">
+              <div class="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center text-lg font-bold text-black">2</div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base font-semibold text-black mb-2">Create users and conversations</h3>
+              <p class="text-neutral-600 leading-relaxed mb-4">Sync your users with TalkJS, create conversation objects, and set access controls. A few API calls — no database schemas to design.</p>
+              <div class="bg-neutral-100 rounded-xl overflow-hidden">
+                <div class="bg-neutral-200 h-8 flex items-center px-3 gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="flex-1 mx-8 h-3.5 bg-neutral-300 rounded"></div>
+                </div>
+                <div class="p-6 min-h-[120px] flex items-center justify-center text-neutral-400 text-sm">
+                  [img: Code snippet showing Talk.ready, user creation, and conversation.setParticipant calls]
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+            <div class="shrink-0">
+              <div class="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center text-lg font-bold text-black">3</div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base font-semibold text-black mb-2">Mount the chat UI and customize</h3>
+              <p class="text-neutral-600 leading-relaxed mb-4">Drop the Inbox or Chatbox component into your page. Customize colors, layout, and behavior with CSS and theme options. Your users see your brand, not ours.</p>
+              <div class="bg-neutral-100 rounded-xl overflow-hidden">
+                <div class="bg-neutral-200 h-8 flex items-center px-3 gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
+                  <div class="flex-1 mx-8 h-3.5 bg-neutral-300 rounded"></div>
+                </div>
+                <div class="p-6 min-h-[120px] flex items-center justify-center text-neutral-400 text-sm">
+                  [img: Split view — TalkJS theme editor on the left, customized chat UI on the right matching the host app's brand colors]
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           TESTIMONIALS — with-results
+           ============================================================ -->
+      <!-- NOTE: Testimonials below are AI-generated examples. Replace with real customer quotes before publishing. -->
+      <section class="py-8 md:py-12">
+        <div class="mb-10">
+          <p class="text-sm font-medium uppercase tracking-wider text-neutral-500 mb-2">130M+ MESSAGES/MONTH</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black text-balance">Teams ship chat faster with TalkJS</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div class="bg-neutral-50 rounded-2xl p-6 flex flex-col">
+            <p class="text-2xl font-bold text-black mb-3">2 days to production</p>
+            <blockquote class="flex-1">
+              <p class="text-sm text-neutral-600 leading-relaxed mb-4">&ldquo;We had buyer-seller messaging running in our marketplace in two days. Our previous estimate for building it in-house was three months.&rdquo;</p>
+              <footer class="flex items-center gap-2.5 mt-auto">
+                <div class="w-8 h-8 rounded-full bg-neutral-200 overflow-hidden shrink-0"></div>
+                <div>
+                  <span class="text-sm font-semibold text-black">Marcus Chen</span>
+                  <span class="text-sm text-neutral-500">, CTO, Itemku</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="bg-neutral-50 rounded-2xl p-6 flex flex-col">
+            <p class="text-2xl font-bold text-black mb-3">40% more engagement</p>
+            <blockquote class="flex-1">
+              <p class="text-sm text-neutral-600 leading-relaxed mb-4">&ldquo;Adding in-app chat increased student-teacher interaction by 40%. The pre-built UI meant our small team could focus on education features, not messaging infra.&rdquo;</p>
+              <footer class="flex items-center gap-2.5 mt-auto">
+                <div class="w-8 h-8 rounded-full bg-neutral-200 overflow-hidden shrink-0"></div>
+                <div>
+                  <span class="text-sm font-semibold text-black">Laura Dijkstra</span>
+                  <span class="text-sm text-neutral-500">, Product Lead, Classtime</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="bg-neutral-50 rounded-2xl p-6 flex flex-col">
+            <p class="text-2xl font-bold text-black mb-3">Zero downtime at scale</p>
+            <blockquote class="flex-1">
+              <p class="text-sm text-neutral-600 leading-relaxed mb-4">&ldquo;We went from 10K to 500K monthly active users. TalkJS handled the scaling — we never had to think about WebSocket connections or message queuing.&rdquo;</p>
+              <footer class="flex items-center gap-2.5 mt-auto">
+                <div class="w-8 h-8 rounded-full bg-neutral-200 overflow-hidden shrink-0"></div>
+                <div>
+                  <span class="text-sm font-semibold text-black">Priya Sharma</span>
+                  <span class="text-sm text-neutral-500">, Engineering Manager, Styleseat</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           FAQ — default
+           ============================================================ -->
+      <section class="py-8 md:py-12">
+        <div class="mb-10">
+          <p class="text-sm font-medium uppercase tracking-wider text-neutral-500 mb-2">BEFORE YOU DECIDE</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black text-balance">Will the chat UI actually look like my product?</h2>
+        </div>
+
+        <div class="max-w-2xl divide-y divide-neutral-200">
+
+          <details class="group py-6">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <span class="text-base font-medium text-black">How customizable is the chat UI, really?</span>
+              <span class="shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-45">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="mt-4 pr-9">
+              <p class="text-neutral-600 text-sm leading-relaxed">Pixel-perfect. You control colors, fonts, layout, message bubble styles, and component placement through CSS and TalkJS themes. Companies like Decathlon and Hyundai use it — their users have no idea it's TalkJS underneath.</p>
+            </div>
+          </details>
+
+          <details class="group py-6">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <span class="text-base font-medium text-black">What happens when we outgrow the free tier?</span>
+              <span class="shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-45">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="mt-4 pr-9">
+              <p class="text-neutral-600 text-sm leading-relaxed">You upgrade to a paid plan. No code changes, no migration. The API and SDK work exactly the same — you just get higher limits and priority support. There's no lock-in penalty or surprise pricing jumps.</p>
+            </div>
+          </details>
+
+          <details class="group py-6">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <span class="text-base font-medium text-black">Is the data secure? We handle sensitive conversations.</span>
+              <span class="shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-45">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="mt-4 pr-9">
+              <p class="text-neutral-600 text-sm leading-relaxed">TLS v1.3 encryption in transit, GDPR-compliant data handling, and a 99.9% uptime SLA. Fintech and healthcare companies use TalkJS for exactly this reason. You can also configure data retention policies per conversation.</p>
+            </div>
+          </details>
+
+          <details class="group py-6">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <span class="text-base font-medium text-black">Can I integrate my own AI chatbot?</span>
+              <span class="shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-45">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="mt-4 pr-9">
+              <p class="text-neutral-600 text-sm leading-relaxed">Yes. Bots are first-class participants in TalkJS conversations. Connect your AI agent via the REST API or webhooks — it can send messages, respond to users, and hand off to human agents when needed.</p>
+            </div>
+          </details>
+
+          <details class="group py-6">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <span class="text-base font-medium text-black">What if my framework isn't listed?</span>
+              <span class="shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-45">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="mt-4 pr-9">
+              <p class="text-neutral-600 text-sm leading-relaxed">The core JavaScript SDK works in any browser environment. The framework-specific SDKs (React, Angular, Vue, Flutter, etc.) are convenience wrappers. If you can run JavaScript, you can use TalkJS.</p>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           CTA — with-proof
+           ============================================================ -->
+      <!-- NOTE: Testimonial below is an AI-generated example. Replace with a real customer quote before publishing. -->
+      <section class="py-8 md:py-12 border-t border-neutral-200">
+        <div class="max-w-2xl">
+          <p class="text-sm font-medium uppercase tracking-wider text-neutral-500 mb-3">FREE TO START</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4 text-balance">Stop building chat infrastructure. Start shipping conversations.</h2>
+          <p class="text-lg text-neutral-600 mb-8 text-balance">Create a free account, install the SDK, and have working chat in your app today. No credit card required.</p>
+
+          <a href="https://talkjs.com/dashboard/signup" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-lg hover:bg-neutral-800 transition-colors">
+            Try TalkJS Free
+          </a>
+
+          <blockquote class="mt-10 border-l-2 border-neutral-200 pl-6">
+            <p class="text-base font-medium text-neutral-600 mb-2 text-balance">&ldquo;We dropped months of development time using their pre-built chat UIs, and we could still make it look exactly like our product.&rdquo;</p>
+            <footer class="text-sm text-neutral-500">
+              &mdash; <span class="font-medium text-black">Engineering Lead, Marketplace Platform</span>
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+
+    </div>
+    <footer class="border-t border-neutral-200 py-6 text-center text-sm text-neutral-400">
+      Generated with PiratePage
+    </footer>
+  </div>
+</body>
+</html>
