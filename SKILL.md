@@ -1,6 +1,6 @@
 ---
 name: piratepage
-version: 2.0.0
+version: 3.0.0
 description: |
   Generate landing pages with conversion copywriting expertise.
   Use when: "generate a landing page", "piratepage", "create a page",
@@ -86,7 +86,7 @@ The 9 questions:
 8. **Objections/fears?** Hesitations at signup/purchase.
 9. **Primary CTA?** What should they do next?
 
-Then voice: "How should the copy sound? Casual / Professional / Bold / Understated / Playful / Serious. Any rules to always follow or never break?"
+Then ask: "Any voice or style rules? (e.g., always casual, never use jargon, match our brand voice). Or skip and I'll use the positioning to decide."
 
 Save everything to `piratepage.json`.
 
@@ -94,13 +94,19 @@ Save everything to `piratepage.json`.
 
 ## Step 4: Outline + Generation
 
-Now you have page type, language, and validated positioning. Generate the page.
+Now you have page type, language, and validated positioning. Generate the page with the **Variations Browser** — every section gets 5 tone variants the user can cycle through.
 
-1. Build a section outline based on page type + Section Selection Guide below.
+**Section Preferences:** If `piratepage.json` contains a `preferredSections` array, prefer those variants when building the outline. If a preferred variant conflicts with the content (e.g., `hero: with-screenshot` but no product UI), note the conflict and suggest an alternative. Fill remaining required sections using the page type template and variant selection rules.
+
+**Paste-back:** If the user pastes a JSON object containing `preferredSections` at any point, merge it into `piratepage.json` and confirm.
+
+1. Build a section outline based on page type + Section Selection Guide below (respecting any `preferredSections`).
 2. Present the outline with "generation choices" explaining WHY each section was picked.
 3. Ask for approval: A) Generate it. B) Change something. C) Different page type.
-4. Generate the full HTML, run quality checks, open in browser.
-5. Present: "Here's your page. Want to iterate?"
+4. **Generate all 5 tone variants for each section.** Work section by section: generate all 5 tones of section 1, then all 5 of section 2, etc. The section structure (layout variant) stays the same across all 5 tones — only the copy changes. All 5 tones must use the same facts, features, names, and numbers from `piratepage.json` — only framing, word choice, and sentence structure differ.
+5. Wrap each section in the Variations Browser HTML structure (see HTML Generation below).
+6. Run quality checks on ALL variants, open in browser.
+7. Present: "Here's your page. Cycle through tones with the arrows on each section."
 
 ---
 
@@ -214,29 +220,31 @@ When building an outline, choose from these. The skill has HTML reference files 
 
 ### Variant Selection Rules
 
+**Default to the richest variant.** Screenshot placeholders, images, and visual elements make pages more compelling. Only choose a simpler variant when the product genuinely has nothing visual to show. When in doubt, include a screenshot placeholder — it's always better than a text-only section.
+
 **Hero:**
-- Product has a UI/screenshots → `with-screenshot`
-- Strong testimonial available → `with-proof`
-- Multiple distinct benefits → `with-checklist`
-- Strong visual/illustration → `with-image`
-- None of the above → `default`
+- Default: `with-screenshot` (generate screenshot placeholder wireframe)
+- Only fall back when:
+  - Product has no UI at all (pure service/consultancy) → `with-checklist` or `with-proof`
+  - Strong testimonial is the #1 selling asset → `with-proof`
+- `default` (text-only) should almost never be chosen
 
 **Features-grid:**
-- 4-6 features with images/screenshots → `bento` (always include screenshot placeholders in bento)
-- 6+ features, no images → `icon-grid`
-- Features have demos/screenshots → `showcase`
-- Complex features needing focus → `tabs`
-- Simple 3-column list → `default`
+- Default: `bento` with screenshot placeholders — this is the right choice most of the time
+- Only fall back when:
+  - 6+ features that are all brief/equal weight → `icon-grid`
+  - Complex features needing sequential focus → `tabs`
+- `default` (plain grid, no images) should almost never be chosen
 
 **How-it-works:**
-- Product has a UI → always use `with-images` (include screenshot placeholders)
-- No visual product → `default`
+- Default: `with-images` (include screenshot placeholders per step)
+- Only fall back to `default` for non-visual products (pure consulting, abstract services)
 
 ### Page Type Templates
 
 **Homepage** (6-10 sections):
-MUST: navbar, hero, 1-2 feature sections (40-60% of page), cta
-SHOULD: pain OR how-it-works, social-proof (logo bar), testimonials, faq
+MUST: navbar, hero (with-screenshot preferred), 1-2 feature sections (40-60% of page, bento preferred), cta
+SHOULD: pain OR how-it-works (with-images preferred), social-proof (logo bar), testimonials, faq
 RECOMMENDED: Include `social-proof` with 4-6 recognizable logos or trust badges after the hero or after testimonials.
 
 **Product Page** (6-8 sections):
@@ -245,7 +253,7 @@ SHOULD: how-it-works (with-images), testimonials or stats
 SKIP: pain
 
 **Service Page** (5-7 sections):
-MUST: navbar, hero, how-it-works, cta
+MUST: navbar, hero, how-it-works (with-images preferred), cta
 SHOULD: testimonials or results, features-list
 SKIP: features-grid, pricing
 
@@ -283,7 +291,16 @@ echo "NOT_FOUND"
 
 Only read reference files for sections in the approved outline. If a file doesn't exist, generate HTML using Tailwind classes consistent with the page style.
 
-### HTML Template
+### HTML Template (Variations Browser)
+
+Every generated page is a Variations Browser. Each section has invisible chrome that appears on hover: a bordered card, a section type pill (top-left), and numbered 1–5 tone buttons (top-right). The URL hash captures selections.
+
+**The 5 tones (mapped to buttons 1–5):**
+1. **Punchy** — Short. Strong verbs. High energy.
+2. **Conversational** — Warm, like a knowledgeable friend.
+3. **Benefit-focused** — Leads with outcomes. "So what does this mean for me?"
+4. **Problem-aware** — Names the frustration before the solution.
+5. **Bold-confident** — Assertive. Strong claims backed by specifics.
 
 ```html
 <!DOCTYPE html>
@@ -296,47 +313,149 @@ Only read reference files for sections in the approved outline. If a file doesn'
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .pp-section { border: 1px solid transparent; transition: border-color 0.15s; }
+    .pp-section:hover { border-color: #e5e5e5; }
+    .pp-chrome { opacity: 0; transition: opacity 0.15s; }
+    .pp-section:hover .pp-chrome { opacity: 1; }
+    @media (hover: none) { .pp-section { border-color: #e5e5e5; } .pp-chrome { opacity: 1; } }
+    @media print { .pp-chrome { display: none; } .pp-section { border: none !important; padding: 0 !important; } }
+  </style>
 </head>
 <body class="antialiased bg-white text-neutral-900">
   <div class="min-h-screen">
     <!-- navbar goes here (outside the content container) -->
-    <div class="max-w-5xl mx-auto px-8 py-8 space-y-16">
-      <!-- sections -->
+    <div class="max-w-5xl mx-auto px-8 py-8 space-y-8">
+
+      <!-- Repeat this wrapper for each section in the outline -->
+      <div class="pp-section rounded-2xl p-6 md:p-10" data-section-index="0" data-section-type="{SectionType}" data-section-variant="{variant}">
+        <div class="pp-chrome flex items-center justify-between mb-6">
+          <span class="text-xs text-neutral-500 bg-neutral-100 px-2.5 py-1 rounded-md">{SectionType} <span class="text-neutral-400">{variant}</span></span>
+          <div class="flex items-center gap-1.5">
+            <button class="pp-pill w-6 h-6 flex items-center justify-center rounded-md text-xs font-medium bg-neutral-900 text-white" data-tone-index="0">1</button>
+            <button class="pp-pill w-6 h-6 flex items-center justify-center rounded-md text-xs font-medium text-neutral-400 hover:text-neutral-900 transition-colors" data-tone-index="1">2</button>
+            <button class="pp-pill w-6 h-6 flex items-center justify-center rounded-md text-xs font-medium text-neutral-400 hover:text-neutral-900 transition-colors" data-tone-index="2">3</button>
+            <button class="pp-pill w-6 h-6 flex items-center justify-center rounded-md text-xs font-medium text-neutral-400 hover:text-neutral-900 transition-colors" data-tone-index="3">4</button>
+            <button class="pp-pill w-6 h-6 flex items-center justify-center rounded-md text-xs font-medium text-neutral-400 hover:text-neutral-900 transition-colors" data-tone-index="4">5</button>
+          </div>
+        </div>
+        <div class="pp-variant" data-tone="punchy">
+          <!-- Full section HTML for punchy tone -->
+        </div>
+        <div class="pp-variant" data-tone="conversational" hidden>
+          <!-- Full section HTML for conversational tone -->
+        </div>
+        <div class="pp-variant" data-tone="benefit" hidden>
+          <!-- Full section HTML for benefit-focused tone -->
+        </div>
+        <div class="pp-variant" data-tone="problem" hidden>
+          <!-- Full section HTML for problem-aware tone -->
+        </div>
+        <div class="pp-variant" data-tone="bold" hidden>
+          <!-- Full section HTML for bold-confident tone -->
+        </div>
+      </div>
+      <!-- End section wrapper -->
+
     </div>
     <footer class="border-t border-neutral-200 py-6 text-center text-sm text-neutral-400">
       Generated with PiratePage
     </footer>
   </div>
+
+  <script>
+    (function() {
+      const TONES = ['punchy', 'conversational', 'benefit', 'problem', 'bold'];
+      const sections = document.querySelectorAll('.pp-section');
+      const current = Array.from(sections, sec => {
+        const visible = sec.querySelector('.pp-variant:not([hidden])');
+        return visible ? TONES.indexOf(visible.dataset.tone) : 0;
+      });
+
+      function show(i, ti) {
+        const sec = sections[i];
+        sec.querySelectorAll('.pp-variant').forEach(v => v.hidden = true);
+        const target = sec.querySelector('[data-tone="' + TONES[ti] + '"]');
+        if (target) target.hidden = false;
+        sec.querySelectorAll('.pp-pill').forEach(pill => {
+          const idx = parseInt(pill.dataset.toneIndex);
+          if (idx === ti) {
+            pill.className = 'pp-pill w-6 h-6 flex items-center justify-center rounded-md text-xs font-medium bg-neutral-900 text-white';
+          } else {
+            pill.className = 'pp-pill w-6 h-6 flex items-center justify-center rounded-md text-xs font-medium text-neutral-400 hover:text-neutral-900 transition-colors';
+          }
+        });
+        current[i] = ti;
+        updateHash();
+      }
+
+      function updateHash() {
+        history.replaceState(null, '', '#' + current.map(i => TONES[i]).join(','));
+      }
+
+      function copyUrl() {
+        navigator.clipboard.writeText(location.href).then(() => {
+          const toast = document.getElementById('pp-toast');
+          toast.innerHTML = '<div style="font-weight:600;font-size:14px">URL copied</div><div style="font-size:12px;opacity:0.7;margin-top:2px">Paste into PiratePage to lock in your picks</div>';
+          toast.style.opacity = '1';
+          toast.style.transform = 'translateX(-50%) translateY(0)';
+          clearTimeout(toast._t);
+          toast._t = setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(8px)';
+          }, 3000);
+        });
+      }
+
+      function readHash() {
+        const h = location.hash.slice(1);
+        if (!h) return;
+        const parts = h.split(',');
+        if (parts.length !== sections.length) return;
+        parts.forEach((slug, i) => {
+          const ti = TONES.indexOf(slug);
+          if (ti >= 0) show(i, ti);
+        });
+      }
+
+      sections.forEach((sec, i) => {
+        sec.querySelectorAll('.pp-pill').forEach(pill => {
+          pill.addEventListener('click', () => {
+            show(i, parseInt(pill.dataset.toneIndex));
+            copyUrl();
+          });
+        });
+      });
+
+      window.addEventListener('hashchange', readHash);
+      readHash();
+    })();
+  </script>
+  <div id="pp-toast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(8px);opacity:0;transition:opacity 0.3s ease,transform 0.3s cubic-bezier(0.16,1,0.3,1);pointer-events:none;background:#fbbf24;color:#18181b;text-align:center;padding:12px 24px;border-radius:10px;z-index:50;"></div>
 </body>
 </html>
 ```
 
+**Section wrapper rules:**
+- Each `pp-section` has transparent border + `rounded-2xl p-6 md:p-10`. Border and chrome appear on hover only.
+- Top-left: section type pill with `bg-neutral-100 rounded-md` (e.g., "Hero with-checklist")
+- Top-right: 5 numbered square buttons with `rounded-md` — active is `bg-neutral-900 text-white`, inactive is `text-neutral-400`
+- On touch devices (`hover: none`), border and chrome are always visible
+- The first tone (`punchy`, button 1) is visible by default; the other 4 have the `hidden` attribute
+- Each `pp-variant` contains a complete `<section>` block with the same layout variant but different copy
+- All 5 variants of a section use the same structural HTML — only text content differs
+- On print, chrome hides and borders/padding are removed
+
 ### Image Placeholders
 
-Use mock UI wireframe placeholders, not just grey boxes:
+The reference files contain abstract wireframe UI mockups as placeholders — not plain grey boxes. These wireframes use `aspect-ratio` for scalable sizing (never `min-height`):
 
-```html
-<!-- Simple placeholder -->
-<div class="bg-neutral-100 rounded-xl min-h-[200px] flex items-center justify-center text-neutral-400 text-sm">
-  [img: description of what goes here]
-</div>
+- **Large (aspect-video):** Dashboard wireframes with browser chrome, sidebar, stat cards, charts/tables. Used in hero with-screenshot, screenshot sections.
+- **Medium (aspect-[4/3]):** Form/card or chart+metrics wireframes. Used in hero with-image/with-proof, features-list spotlight, features-grid tabs.
+- **Small (aspect-[3/2]):** Mini list or card-preview wireframes. Used in features-grid showcase, showcase cards, how-it-works steps.
 
-<!-- Mock screenshot placeholder (use for product UI sections) -->
-<div class="bg-neutral-100 rounded-xl overflow-hidden">
-  <div class="bg-neutral-200 h-8 flex items-center px-3 gap-1.5">
-    <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
-    <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
-    <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
-    <div class="flex-1 mx-8 h-3.5 bg-neutral-300 rounded"></div>
-  </div>
-  <div class="p-6 min-h-[180px] flex items-center justify-center text-neutral-400 text-sm">
-    [img: description of the screenshot]
-  </div>
-</div>
-```
-
-Use mock screenshot placeholders for: hero (with-screenshot), how-it-works (with-images), features-grid (bento, showcase), screenshot section. Use simple placeholders for: testimonial avatars, logo bars, generic images.
+Copy the wireframe HTML directly from the reference files. Each wireframe keeps a tiny `[img: {description}]` label at bottom-right for designer reference. Do not replace wireframes with plain grey boxes.
 
 ### Invented Content Warning
 
@@ -363,9 +482,10 @@ Run BEFORE presenting to user. Fix failures silently.
 4. **Banned Pattern Scan** — Check all copy against banned phrases and vocabulary.
 5. **Eyebrow Check** — 2-4 words, product facts, not labels, not sentences.
 6. **FAQ Headline Check** — Must NOT be "FAQ" or "Frequently Asked Questions." Lead with the #1 objection.
-7. **Screenshot Placeholder Check** — Process sections (how-it-works) and product UI sections must have image placeholders. Use mock screenshot style for product UI.
+7. **Wireframe Check** — Product UI sections must use wireframe placeholders from reference files (aspect-ratio sized, not min-height grey boxes). Never use plain `[img: ...]` text boxes.
 8. **CTA Check** — [Action Verb] + [What They Get]. No "Learn More" or "Get Started."
 9. **Topic Anchoring Check** — Every headline must make clear what the page is about. If a headline could be on any website about anything, it's too generic. Rewrite with the product's category or specific feature.
+10. **Variation Distinctness Check** — Read the headlines of all 5 tones for each section. They must be meaningfully different, not just synonym swaps. Each tone should lead with a different angle (outcome vs. problem vs. proof vs. energy vs. empathy).
 
 ---
 
@@ -386,24 +506,17 @@ D) All three
 
 After presenting, offer:
 A) Looks good, done
-B) Regenerate a specific section
-C) Different tone for a section
-D) Shuffle section order
-E) Add/remove a section
-F) Regenerate whole page with feedback
-
-### 5 Variation Tones
-1. **Punchy** — Short. Strong verbs. High energy.
-2. **Conversational** — Warm, like a knowledgeable friend.
-3. **Benefit-focused** — Leads with outcomes. "So what does this mean for me?"
-4. **Problem-aware** — Names the frustration before the solution.
-5. **Bold-confident** — Assertive. Strong claims backed by specifics.
+B) Regenerate a specific section (rewrites all 5 tone variants for that section)
+C) Shuffle section order
+D) Add/remove a section (new sections get all 5 tones)
+E) Regenerate whole page with feedback
+F) Export current selection — take the tone combination from the URL hash and output a clean single-tone HTML file (no variations browser chrome)
 
 ### Section-Level Changes
-Rewrite only that section. Run quality checks. Edit HTML in place. Show what changed.
+Rewrite all 5 tone variants for that section. Run quality checks on all variants. Edit HTML in place.
 
 ### Full Regeneration with Feedback
-Save feedback to `piratepage.json`. Apply as constraints. Re-run all quality checks.
+Save feedback to `piratepage.json`. Apply as constraints. Regenerate all sections with all 5 tones. Re-run all quality checks.
 
 ---
 
@@ -411,6 +524,7 @@ Save feedback to `piratepage.json`. Apply as constraints. Re-run all quality che
 
 - Stay conversational. Natural language in AskUserQuestion prompts, not robotic lists.
 - Briefly explain 2-3 key copy decisions after presenting the page.
+- **Section Gallery:** Users can run `/piratepage-gallery` to browse all section types and variants visually, mark favorites, and copy a preference array to paste back.
 - Never present without quality checks.
 - `piratepage.json` is persistent state. Update on every change.
 - Detect skill directory dynamically — never hardcode paths.
