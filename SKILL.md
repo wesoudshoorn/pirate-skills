@@ -84,29 +84,35 @@ When generating in a non-English language: write natively. Do not translate from
 
 This is the core of PiratePage. These questions force you to think through positioning before any copy is generated. You can't skip them. They're what makes the output good.
 
-From the extracted URL content or description, pre-fill all 9 answers as best guesses. Then walk through each one via AskUserQuestion, one at a time:
+From the extracted URL content or description, pre-fill all 9 answers as best guesses. Then present them in **3 batches** via AskUserQuestion — not one at a time. Each batch groups related questions so the user can review and confirm them together.
 
-"I scraped your site and pre-filled these answers. For each one: confirm it's right, tweak it, or rewrite it."
+"I scraped your site and pre-filled your positioning. Review each batch — confirm what's right, or tell me what to change."
 
-For each question, present the pre-filled answer with options:
+For each question in the batch, show the pre-filled answer with options:
 A) This is right
 B) Close but needs tweaking (tell me what to change)
 C) Completely wrong, let me rewrite
 
-The 9 questions:
+### Batch 1 — Identity (what it is)
+Ask these 3 questions together in one AskUserQuestion call:
 1. **What is your product?** A brief, plain-language description.
 2. **What is it NOT?** Common misconceptions, what to clarify.
 3. **Key takeaway?** If a visitor remembers ONE thing, what should it be?
+
+### Batch 2 — Positioning (vs alternatives)
+Ask these 3 questions together in one AskUserQuestion call:
 4. **Word of mouth?** How would an excited user describe it to a friend?
 5. **Competitors?** Direct, indirect, and "doing it manually."
 6. **How are you different?** Specific differences, not generic claims.
+
+### Batch 3 — Conversion + Voice (why buy, what next)
+Ask these 4 questions together in one AskUserQuestion call:
 7. **Why do users want this?** What progress are they trying to make?
 8. **Objections/fears?** Hesitations at signup/purchase.
 9. **Primary CTA?** What should they do next?
+10. **Voice/tone?** Options: Professional / Casual / Bold / Skip — I'll decide from positioning.
 
-Then ask: "Any voice or style rules? (e.g., always casual, never use jargon, match our brand voice). Or skip and I'll use the positioning to decide."
-
-Save everything to `piratepage.json`.
+After each batch, apply any corrections before moving to the next. After all 3 batches, save everything to `piratepage.json`.
 
 ---
 
