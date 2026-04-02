@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pactwise — Contract Management for Freelancers & Small Agencies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3',
+            300: '#fda4af', 400: '#fb7185', 500: '#f43f5e',
+            600: '#e11d48', 700: '#be123c', 800: '#9f1239',
+            900: '#881337', 950: '#4c0519'
+          },
+          dark: { 700: '#1f1a1b', 800: '#181415', 900: '#121010', 950: '#0d0a0b' }
+        },
+        fontFamily: {
+          display: ['Nunito', 'system-ui', 'sans-serif'],
+          body: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        boxShadow: {
+          'soft': '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04)',
+          'lifted': '0 2px 8px rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.08)',
+          'hero': '0 8px 30px rgba(0,0,0,0.15), 0 32px 80px rgba(0,0,0,0.2)',
+        }
+      }
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-headline { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; }
+    .section-headline { font-size: clamp(1.75rem, 3.5vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; }
+  </style>
+</head>
+<body class="bg-white font-body text-neutral-900">
+
+  <!-- ============ HERO (brand-50 bg) ============ -->
+  <section class="bg-brand-50">
+    <!-- Nav -->
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#" class="font-display font-800 text-xl text-neutral-900 tracking-tight">Pactwise</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Features</a>
+        <a href="#pricing" class="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Pricing</a>
+        <a href="#testimonials" class="text-neutral-600 hover:text-neutral-900 text-sm font-medium transition-colors">Testimonials</a>
+        <a href="#cta" class="bg-brand-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-600 transition-colors">Start Free Trial</a>
+      </div>
+    </nav>
+
+    <!-- Hero Content -->
+    <div class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+      <div class="max-w-4xl">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">Contract management, simplified</p>
+        <h1 class="hero-headline font-display font-800 text-neutral-900 mb-6">Stop chasing signatures.<br>Start closing deals.</h1>
+        <p class="text-neutral-500 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">Pactwise helps freelancers and small agencies create, send, and track contracts in minutes — not days. Beautiful templates, e-signatures, and payment milestones in one place.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#" class="bg-brand-500 text-white font-semibold px-8 py-3.5 rounded-full hover:bg-brand-600 transition-colors text-base">Start Free — No Card Needed</a>
+          <a href="#" class="text-neutral-600 border border-neutral-300 font-semibold px-8 py-3.5 rounded-full hover:border-neutral-400 hover:text-neutral-900 transition-colors text-base">See How It Works</a>
+        </div>
+      </div>
+
+      <!-- Hero Screenshot Mock -->
+      <div class="mt-16 relative">
+        <div class="bg-neutral-100 border border-black/10 rounded-2xl shadow-hero p-6 md:p-8 translate-y-16">
+          <div class="flex items-center gap-2 mb-6">
+            <div class="w-3 h-3 rounded-full bg-neutral-300"></div>
+            <div class="w-3 h-3 rounded-full bg-neutral-300"></div>
+            <div class="w-3 h-3 rounded-full bg-neutral-300"></div>
+            <div class="ml-4 bg-neutral-200 rounded-full h-4 w-48"></div>
+          </div>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white rounded-xl p-5 border border-black/5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="bg-neutral-200 rounded h-3 w-24"></div>
+                <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full">Signed</span>
+              </div>
+              <div class="bg-neutral-100 rounded h-2 w-full mb-2"></div>
+              <div class="bg-neutral-100 rounded h-2 w-3/4"></div>
+            </div>
+            <div class="bg-white rounded-xl p-5 border border-black/5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="bg-neutral-200 rounded h-3 w-20"></div>
+                <span class="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">Pending</span>
+              </div>
+              <div class="bg-neutral-100 rounded h-2 w-full mb-2"></div>
+              <div class="bg-neutral-100 rounded h-2 w-2/3"></div>
+            </div>
+            <div class="bg-white rounded-xl p-5 border border-black/5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="bg-neutral-200 rounded h-3 w-28"></div>
+                <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full">Signed</span>
+              </div>
+              <div class="bg-neutral-100 rounded h-2 w-full mb-2"></div>
+              <div class="bg-neutral-100 rounded h-2 w-5/6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL PROOF (white bg) ============ -->
+  <section class="bg-white pt-32 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-center text-neutral-500 text-sm font-medium mb-8">Trusted by 4,200+ freelancers and agencies worldwide</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-40">
+        <span class="font-display font-bold text-lg text-neutral-900">Toptal</span>
+        <span class="font-display font-bold text-lg text-neutral-900">Dribbble</span>
+        <span class="font-display font-bold text-lg text-neutral-900">Upwork Pro</span>
+        <span class="font-display font-bold text-lg text-neutral-900">Contra</span>
+        <span class="font-display font-bold text-lg text-neutral-900">Malt</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM / BEFORE-AFTER (neutral-50 bg) ============ -->
+  <section class="bg-neutral-50 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">The problem</p>
+        <h2 class="section-headline font-display font-800 text-neutral-900 mb-5">Contracts shouldn't take longer than the work itself</h2>
+        <p class="text-neutral-500 text-lg leading-relaxed">Most freelancers lose 3-5 hours per contract juggling Word docs, PDF exports, and email threads. Clients ghost. Revisions pile up. Payments slip through the cracks.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Before -->
+        <div class="border border-black/10 rounded-2xl p-8 bg-white">
+          <p class="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-6">Before Pactwise</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-neutral-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span class="text-neutral-500">Copy-pasting contract templates from Google Docs</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-neutral-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span class="text-neutral-500">Emailing PDFs back and forth for signatures</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-neutral-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span class="text-neutral-500">Manually tracking which clients signed and which didn't</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-neutral-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              <span class="text-neutral-500">Chasing late payments with no leverage</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- After -->
+        <div class="border border-black/10 rounded-2xl p-8 bg-white">
+          <p class="text-sm font-semibold text-brand-600 uppercase tracking-wide mb-6">After Pactwise</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500">Create a polished contract in under 3 minutes</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500">Clients sign online with a single click</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500">Real-time dashboard shows every contract's status</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500">Automated payment milestones tied to deliverables</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES (white bg) ============ -->
+  <section id="features" class="bg-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">Features</p>
+        <h2 class="section-headline font-display font-800 text-neutral-900 mb-5">Everything you need to close faster</h2>
+        <p class="text-neutral-500 text-lg leading-relaxed">From first draft to final payment, Pactwise handles the entire contract lifecycle so you can focus on the work that matters.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Feature 1 -->
+        <div class="border border-black/10 rounded-2xl p-8 hover:shadow-soft transition-all duration-300">
+          <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-neutral-900 mb-2">Smart Templates</h3>
+          <p class="text-neutral-500 leading-relaxed">Choose from 40+ lawyer-reviewed templates for freelance, agency, and consulting work. Customize clauses in plain English.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="border border-black/10 rounded-2xl p-8 hover:shadow-soft transition-all duration-300">
+          <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-neutral-900 mb-2">E-Signatures</h3>
+          <p class="text-neutral-500 leading-relaxed">Legally binding electronic signatures with audit trails. Clients sign from any device in seconds, no account required.</p>
+        </div>
+
+        <!-- Feature 3 — Highlight Card -->
+        <div class="bg-brand-600 rounded-2xl p-8 text-white">
+          <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-white mb-2">Payment Milestones</h3>
+          <p class="text-white/70 leading-relaxed">Tie payments to project phases. Automatic reminders, Stripe integration, and a clear payment timeline your client can see.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="border border-black/10 rounded-2xl p-8 hover:shadow-soft transition-all duration-300">
+          <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-neutral-900 mb-2">Contract Analytics</h3>
+          <p class="text-neutral-500 leading-relaxed">See average time-to-sign, which templates convert best, and where clients drop off. Data-driven contract improvements.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="border border-black/10 rounded-2xl p-8 hover:shadow-soft transition-all duration-300">
+          <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-neutral-900 mb-2">Clause Library</h3>
+          <p class="text-neutral-500 leading-relaxed">Save and reuse your best clauses. Build a personal legal toolkit that gets smarter with every contract you create.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="border border-black/10 rounded-2xl p-8 hover:shadow-soft transition-all duration-300">
+          <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg text-neutral-900 mb-2">Smart Reminders</h3>
+          <p class="text-neutral-500 leading-relaxed">Automated follow-ups for unsigned contracts and overdue payments. Polite nudges that keep deals moving without the awkwardness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METRICS (brand-50 bg) ============ -->
+  <section class="bg-brand-50 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">Results that speak</p>
+        <h2 class="section-headline font-display font-800 text-neutral-900 mb-5">Freelancers get paid faster with Pactwise</h2>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <p class="font-display font-800 text-brand-600" style="font-size: clamp(2rem, 4vw, 3.5rem);">2.4 min</p>
+          <p class="text-neutral-500 mt-2">Average time to create and send a contract</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display font-800 text-brand-600" style="font-size: clamp(2rem, 4vw, 3.5rem);">87%</p>
+          <p class="text-neutral-500 mt-2">Contracts signed within 24 hours</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display font-800 text-brand-600" style="font-size: clamp(2rem, 4vw, 3.5rem);">11 days</p>
+          <p class="text-neutral-500 mt-2">Faster average payment vs. manual invoicing</p>
+        </div>
+        <div class="text-center">
+          <p class="font-display font-800 text-brand-600" style="font-size: clamp(2rem, 4vw, 3.5rem);">4,200+</p>
+          <p class="text-neutral-500 mt-2">Freelancers and agencies using Pactwise</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS (dark-950 bg) ============ -->
+  <section id="testimonials" class="bg-dark-950 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-white/40 font-semibold text-sm uppercase tracking-widest mb-4">What people say</p>
+        <h2 class="section-headline font-display font-800 text-white mb-5">Loved by freelancers who hate paperwork</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="border border-dark-700 rounded-2xl p-8">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-white/60 leading-relaxed mb-6">"I used to dread the contract phase of every project. Now I send a Pactwise link and it's signed before my coffee gets cold. Saved me at least 5 hours a week."</p>
+          <div>
+            <p class="text-white font-medium text-sm">Sarah Chen</p>
+            <p class="text-white/40 text-sm">Brand Designer, Freelance</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="border border-dark-700 rounded-2xl p-8">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-white/60 leading-relaxed mb-6">"The payment milestones feature changed everything for our agency. Clients know exactly what they owe and when. We've cut late payments by 73% since switching."</p>
+          <div>
+            <p class="text-white font-medium text-sm">Marcus Rivera</p>
+            <p class="text-white/40 text-sm">Co-founder, Rivero Studio</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="border border-dark-700 rounded-2xl p-8">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-4 h-4 text-brand-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-white/60 leading-relaxed mb-6">"As a solo developer, I don't want to think about legal stuff. Pactwise templates are solid enough that my lawyer approved them. One less thing to worry about."</p>
+          <div>
+            <p class="text-white font-medium text-sm">Jamie Okafor</p>
+            <p class="text-white/40 text-sm">Full-Stack Developer, Freelance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS (white bg) ============ -->
+  <section class="bg-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">How it works</p>
+        <h2 class="section-headline font-display font-800 text-neutral-900 mb-5">Three steps to a signed contract</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="font-display font-bold text-brand-600 text-xl">1</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-neutral-900 mb-2">Pick a template</h3>
+          <p class="text-neutral-500 leading-relaxed">Choose from 40+ lawyer-reviewed templates, or import your own. Fill in project details, scope, and payment terms.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="font-display font-bold text-brand-600 text-xl">2</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-neutral-900 mb-2">Send for signature</h3>
+          <p class="text-neutral-500 leading-relaxed">Share a branded link with your client. They review and sign from any device in seconds. No login required.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="font-display font-bold text-brand-600 text-xl">3</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-neutral-900 mb-2">Get paid on time</h3>
+          <p class="text-neutral-500 leading-relaxed">Payment milestones trigger automatically. Stripe handles the money. You get notified the moment funds land.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING (neutral-50 bg) ============ -->
+  <section id="pricing" class="bg-neutral-50 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">Pricing</p>
+        <h2 class="section-headline font-display font-800 text-neutral-900 mb-5">Simple, honest pricing</h2>
+        <p class="text-neutral-500 text-lg leading-relaxed">Start free. Upgrade when you need more contracts or team seats.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- Free -->
+        <div class="border border-black/10 rounded-2xl p-8 bg-white hover:shadow-soft transition-all duration-300">
+          <p class="font-display font-bold text-lg text-neutral-900 mb-1">Starter</p>
+          <p class="text-neutral-500 text-sm mb-6">For freelancers getting started</p>
+          <p class="font-display font-800 text-neutral-900 mb-1" style="font-size: clamp(2rem, 3vw, 2.5rem);">$0</p>
+          <p class="text-neutral-500 text-sm mb-8">Free forever</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">3 active contracts</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">E-signatures included</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">10 templates</span>
+            </li>
+          </ul>
+          <a href="#" class="block text-center text-neutral-600 border border-neutral-300 font-semibold px-6 py-3 rounded-full hover:border-neutral-400 hover:text-neutral-900 transition-colors text-sm">Get Started Free</a>
+        </div>
+
+        <!-- Pro — highlighted -->
+        <div class="border-2 border-brand-500 rounded-2xl p-8 bg-white relative hover:shadow-soft transition-all duration-300">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
+          <p class="font-display font-bold text-lg text-neutral-900 mb-1">Pro</p>
+          <p class="text-neutral-500 text-sm mb-6">For active freelancers and consultants</p>
+          <p class="font-display font-800 text-neutral-900 mb-1" style="font-size: clamp(2rem, 3vw, 2.5rem);">$19</p>
+          <p class="text-neutral-500 text-sm mb-8">per month</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">Unlimited contracts</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">Payment milestones + Stripe</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">40+ templates + clause library</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">Smart reminders</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">Contract analytics</span>
+            </li>
+          </ul>
+          <a href="#" class="block text-center bg-brand-500 text-white font-semibold px-6 py-3 rounded-full hover:bg-brand-600 transition-colors text-sm">Start 14-Day Free Trial</a>
+        </div>
+
+        <!-- Agency -->
+        <div class="border border-black/10 rounded-2xl p-8 bg-white hover:shadow-soft transition-all duration-300">
+          <p class="font-display font-bold text-lg text-neutral-900 mb-1">Agency</p>
+          <p class="text-neutral-500 text-sm mb-6">For teams and growing agencies</p>
+          <p class="font-display font-800 text-neutral-900 mb-1" style="font-size: clamp(2rem, 3vw, 2.5rem);">$49</p>
+          <p class="text-neutral-500 text-sm mb-8">per month, up to 5 seats</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">Everything in Pro</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">Team permissions and roles</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">Custom branding on contracts</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-neutral-500 text-sm">Priority support</span>
+            </li>
+          </ul>
+          <a href="#" class="block text-center text-neutral-600 border border-neutral-300 font-semibold px-6 py-3 rounded-full hover:border-neutral-400 hover:text-neutral-900 transition-colors text-sm">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ (white bg) ============ -->
+  <section class="bg-white py-24 md:py-32">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-widest mb-4">FAQ</p>
+        <h2 class="section-headline font-display font-800 text-neutral-900">Common questions</h2>
+      </div>
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="font-display font-bold text-neutral-900 mb-2">Are the e-signatures legally binding?</h3>
+          <p class="text-neutral-500 leading-relaxed">Yes. Pactwise e-signatures comply with ESIGN, UETA, and eIDAS regulations. Every signature includes a full audit trail with timestamps, IP addresses, and browser fingerprints.</p>
+        </div>
+        <div class="border-t border-black/5 pt-8">
+          <h3 class="font-display font-bold text-neutral-900 mb-2">Can I use my own contract templates?</h3>
+          <p class="text-neutral-500 leading-relaxed">Absolutely. Upload any Word or PDF template and Pactwise will convert it into an editable, signable format. You can also save custom clauses to your library.</p>
+        </div>
+        <div class="border-t border-black/5 pt-8">
+          <h3 class="font-display font-bold text-neutral-900 mb-2">What payment methods do clients see?</h3>
+          <p class="text-neutral-500 leading-relaxed">Through our Stripe integration, clients can pay via credit card, debit card, ACH bank transfer, or Apple Pay. Funds land in your account within 2 business days.</p>
+        </div>
+        <div class="border-t border-black/5 pt-8">
+          <h3 class="font-display font-bold text-neutral-900 mb-2">Is there a contract limit on the free plan?</h3>
+          <p class="text-neutral-500 leading-relaxed">The Starter plan lets you manage up to 3 active contracts at a time, with no time limit. Once a contract is completed or archived, you can create a new one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA (dark-950 bg) ============ -->
+  <section id="cta" class="bg-dark-950 py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-white/40 font-semibold text-sm uppercase tracking-widest mb-4">Ready to get started?</p>
+      <h2 class="section-headline font-display font-800 text-white mb-5">Your next contract is 3 minutes away</h2>
+      <p class="text-white/60 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">Join 4,200+ freelancers and agencies who stopped chasing signatures and started closing deals. Free to start, no credit card required.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#" class="bg-brand-500 text-white font-semibold px-8 py-3.5 rounded-full hover:bg-brand-600 transition-colors text-base">Start Your Free Trial</a>
+        <a href="#" class="text-white/70 border border-white/20 font-semibold px-8 py-3.5 rounded-full hover:border-white/40 hover:text-white transition-colors text-base">Talk to Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER (dark-950 bg, continued) ============ -->
+  <footer class="bg-dark-950 border-t border-dark-700 py-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <p class="font-display font-bold text-white text-lg">Pactwise</p>
+      <div class="flex items-center gap-8">
+        <a href="#" class="text-white/40 hover:text-white/70 text-sm transition-colors">Privacy</a>
+        <a href="#" class="text-white/40 hover:text-white/70 text-sm transition-colors">Terms</a>
+        <a href="#" class="text-white/40 hover:text-white/70 text-sm transition-colors">Support</a>
+      </div>
+      <p class="text-white/30 text-sm">2026 Pactwise. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

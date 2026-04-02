@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driftwood — API monitoring that catches failures before your users do</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0',
+            300: '#86efac', 400: '#4ade80', 500: '#22c55e',
+            600: '#16a34a', 700: '#15803d', 800: '#166534',
+            900: '#14532d', 950: '#052e16'
+          },
+          dark: {
+            700: '#1a1f1c',
+            800: '#141816',
+            900: '#0f1210',
+            950: '#0a0d0b',
+          }
+        },
+        fontFamily: {
+          display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+          body: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        boxShadow: {
+          'soft': '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04)',
+          'lifted': '0 2px 8px rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.08)',
+          'hero': '0 8px 30px rgba(0,0,0,0.15), 0 32px 80px rgba(0,0,0,0.2)',
+        }
+      }
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-headline { font-size: clamp(3rem, 7vw, 6rem); line-height: 1; letter-spacing: -0.035em; }
+    .section-headline { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.08; letter-spacing: -0.025em; }
+  </style>
+</head>
+<body class="antialiased bg-white text-neutral-900">
+
+  <!-- HERO -->
+  <section class="bg-dark-950 min-h-screen flex flex-col relative overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-brand-500/[0.06] rounded-full blur-[120px]"></div>
+
+    <div class="flex-1 flex flex-col justify-center max-w-7xl mx-auto px-8 pt-20 pb-8 relative">
+      <div class="text-center max-w-5xl mx-auto">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-white/40 mb-6 font-display">API monitoring for teams who ship fast</p>
+        <h1 class="hero-headline font-bold text-white mb-8 text-balance font-display">Catch API failures before your users notice</h1>
+        <p class="text-xl md:text-2xl text-white/60 mb-12 text-balance leading-relaxed max-w-2xl mx-auto">Driftwood monitors every endpoint, every response, every latency spike. When something breaks at 3am, you get the alert and the root cause.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#" class="inline-flex items-center justify-center px-10 py-4 text-base font-semibold bg-brand-500 text-white rounded-xl hover:bg-brand-400 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">Start monitoring free</a>
+          <a href="#" class="inline-flex items-center justify-center px-10 py-4 text-base font-medium text-white/70 border border-white/20 rounded-xl hover:border-white/40 hover:text-white transition-all duration-200">See a live demo</a>
+        </div>
+        <p class="mt-8 text-sm text-white/30">Trusted by 1,200+ engineering teams &middot; &#9733;&#9733;&#9733;&#9733;&#9733; 4.8/5 on G2</p>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-8 w-full relative z-10 translate-y-20">
+      <div class="bg-dark-900 rounded-2xl overflow-hidden shadow-hero border border-dark-700">
+        <div class="bg-dark-800 h-11 flex items-center px-4 gap-2 border-b border-dark-700">
+          <div class="w-3 h-3 rounded-full bg-dark-700"></div>
+          <div class="w-3 h-3 rounded-full bg-dark-700"></div>
+          <div class="w-3 h-3 rounded-full bg-dark-700"></div>
+          <div class="flex-1 mx-16 h-4 bg-dark-700 rounded-md"></div>
+        </div>
+        <div class="p-8 min-h-[420px] flex items-center justify-center text-neutral-600 text-sm">
+          [img: Driftwood dashboard showing real-time API health across 12 endpoints with latency graphs, error rate trends, and an active incident timeline]
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SOCIAL PROOF -->
+  <section class="bg-neutral-50 pt-36 pb-20">
+    <div class="max-w-6xl mx-auto px-8 text-center">
+      <p class="text-sm font-medium text-neutral-400 mb-8 tracking-wide">Trusted by engineering teams at</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+        <span class="text-neutral-300 font-semibold text-lg tracking-wide">Vercel</span>
+        <span class="text-neutral-300 font-semibold text-lg tracking-wide">Linear</span>
+        <span class="text-neutral-300 font-semibold text-lg tracking-wide">Resend</span>
+        <span class="text-neutral-300 font-semibold text-lg tracking-wide">Railway</span>
+        <span class="text-neutral-300 font-semibold text-lg tracking-wide">Supabase</span>
+        <span class="text-neutral-300 font-semibold text-lg tracking-wide">Planetscale</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PAIN — before/after -->
+  <section class="bg-neutral-50 pb-32 md:pb-40">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="max-w-3xl mb-16">
+        <h2 class="section-headline font-bold text-neutral-900 mb-6 text-balance font-display">Your current monitoring is a lie</h2>
+        <p class="text-xl text-neutral-500 text-balance leading-relaxed">A green status page doesn't mean your API is healthy. It means you haven't noticed the problem yet.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white border border-neutral-200 rounded-3xl p-10 md:p-12 shadow-soft">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400 mb-10 font-display">Without Driftwood</h3>
+          <ul class="space-y-7">
+            <li class="flex items-start gap-5">
+              <div class="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <span class="text-neutral-600 leading-relaxed text-base">Users report errors before your team knows</span>
+            </li>
+            <li class="flex items-start gap-5">
+              <div class="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <span class="text-neutral-600 leading-relaxed text-base">Latency creeps up 200ms and nobody notices for weeks</span>
+            </li>
+            <li class="flex items-start gap-5">
+              <div class="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+              </div>
+              <span class="text-neutral-600 leading-relaxed text-base">Incident response starts with "what changed?"</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-dark-950 border border-dark-700 rounded-3xl p-10 md:p-12">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-white/40 mb-10 font-display">With Driftwood</h3>
+          <ul class="space-y-7">
+            <li class="flex items-start gap-5">
+              <div class="w-9 h-9 rounded-xl bg-brand-400/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <span class="text-white/70 leading-relaxed text-base">Alerts fire 4 minutes before users hit the error</span>
+            </li>
+            <li class="flex items-start gap-5">
+              <div class="w-9 h-9 rounded-xl bg-brand-400/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <span class="text-white/70 leading-relaxed text-base">Latency regression caught on the first deploy that causes it</span>
+            </li>
+            <li class="flex items-start gap-5">
+              <div class="w-9 h-9 rounded-xl bg-brand-400/10 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              </div>
+              <span class="text-white/70 leading-relaxed text-base">Root cause attached to every alert. No guessing.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FEATURES — bento -->
+  <section class="bg-white py-32 md:py-40">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="max-w-3xl mb-16">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-600 mb-4 font-display">Built for API-first teams</p>
+        <h2 class="section-headline font-bold text-neutral-900 text-balance font-display">Every endpoint, every deploy, every anomaly</h2>
+        <p class="mt-5 text-xl text-neutral-500 text-balance leading-relaxed">Driftwood isn't another uptime checker. It understands your API's behavior over time and knows when something is off.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="md:col-span-2 bg-white border border-neutral-200 rounded-3xl shadow-soft p-10 hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-900 mb-3 font-display">Endpoint-level health scores</h3>
+          <p class="text-neutral-500 leading-relaxed">Each endpoint gets a health score from 0-100, updated every 30 seconds. Combines latency p50/p95/p99, error rate, and response body validation into a single number your team can act on.</p>
+        </div>
+        <div class="md:col-span-1 bg-white border border-neutral-200 rounded-3xl shadow-soft p-10 hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-900 mb-3 font-display">Deploy-aware baselines</h3>
+          <p class="text-neutral-500 leading-relaxed">Driftwood detects deploys automatically. Baselines reset, so a new slow endpoint doesn't get lost in historical averages.</p>
+        </div>
+        <div class="md:col-span-1 bg-white border border-neutral-200 rounded-3xl shadow-soft p-10 hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-900 mb-3 font-display">Root cause in 30 seconds</h3>
+          <p class="text-neutral-500 leading-relaxed">Every alert includes: the deploy that caused it, the exact endpoint, a diff of response behavior, and the engineer who shipped the change.</p>
+        </div>
+        <div class="md:col-span-2 bg-white border border-neutral-200 rounded-3xl shadow-soft p-10 hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-900 mb-3 font-display">Slack, PagerDuty, and webhook alerts</h3>
+          <p class="text-neutral-500 leading-relaxed">Alerts go where your team already works. Smart grouping prevents alert fatigue: related failures are bundled into a single incident, not 47 separate pings.</p>
+        </div>
+        <div class="md:col-span-3 bg-brand-600 rounded-3xl p-10">
+          <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3 font-display">OpenAPI schema validation</h3>
+          <p class="text-white/80 leading-relaxed">Upload your OpenAPI spec. Driftwood validates every response against it. When a field changes type or a required field disappears, you know immediately, not when a frontend engineer files a bug.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-neutral-50 py-32 md:py-40">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-600 mb-4 font-display">Real results from real teams</p>
+        <h2 class="section-headline font-bold text-neutral-900 text-balance font-display">Teams using Driftwood catch issues 12x faster</h2>
+      </div>
+      <!-- NOTE: Testimonials below are AI-generated examples. Replace with real customer quotes before publishing. -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white border border-neutral-200 rounded-3xl shadow-soft p-10 flex flex-col hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
+          <p class="text-5xl font-bold text-brand-600 mb-2 font-display">94%</p>
+          <p class="text-base font-semibold text-neutral-900 mb-6">fewer user-reported bugs</p>
+          <blockquote class="flex-1">
+            <p class="text-sm text-neutral-500 leading-relaxed mb-8">&ldquo;We went from finding out about API issues from angry tweets to catching them before the first user request fails. The deploy correlation alone saved us dozens of hours per quarter.&rdquo;</p>
+            <footer class="flex items-center gap-3 mt-auto">
+              <div class="w-11 h-11 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 text-sm font-semibold shrink-0">SC</div>
+              <div>
+                <p class="text-sm font-semibold text-neutral-900">Sarah Chen</p>
+                <p class="text-xs text-neutral-400">VP Engineering, Meridian</p>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="bg-white border border-neutral-200 rounded-3xl shadow-soft p-10 flex flex-col hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
+          <p class="text-5xl font-bold text-brand-600 mb-2 font-display">82%</p>
+          <p class="text-base font-semibold text-neutral-900 mb-6">reduction in MTTR</p>
+          <blockquote class="flex-1">
+            <p class="text-sm text-neutral-500 leading-relaxed mb-8">&ldquo;The root cause analysis is the killer feature. Before Driftwood, we'd spend half our incident response time just figuring out what changed. Now the alert tells us exactly which deploy broke which endpoint.&rdquo;</p>
+            <footer class="flex items-center gap-3 mt-auto">
+              <div class="w-11 h-11 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 text-sm font-semibold shrink-0">MR</div>
+              <div>
+                <p class="text-sm font-semibold text-neutral-900">Marcus Rodriguez</p>
+                <p class="text-xs text-neutral-400">SRE Lead, Flux</p>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="bg-white border border-neutral-200 rounded-3xl shadow-soft p-10 flex flex-col hover:shadow-lifted hover:-translate-y-1 transition-all duration-300">
+          <p class="text-5xl font-bold text-brand-600 mb-2 font-display">3x</p>
+          <p class="text-base font-semibold text-neutral-900 mb-6">team output, same headcount</p>
+          <blockquote class="flex-1">
+            <p class="text-sm text-neutral-500 leading-relaxed mb-8">&ldquo;We're a small team. We can't afford a dedicated SRE. Driftwood is our SRE. Schema validation caught a breaking change in our payment API 6 minutes after deploy. That used to be a 2am phone call.&rdquo;</p>
+            <footer class="flex items-center gap-3 mt-auto">
+              <div class="w-11 h-11 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 text-sm font-semibold shrink-0">AP</div>
+              <div>
+                <p class="text-sm font-semibold text-neutral-900">Aisha Patel</p>
+                <p class="text-xs text-neutral-400">CTO, Nomad Labs</p>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="bg-dark-950 py-32 md:py-40 relative overflow-hidden">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-500/[0.04] rounded-full blur-[120px]"></div>
+
+    <div class="max-w-7xl mx-auto px-8 text-center relative">
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-white/40 mb-6 font-display">Ship faster, sleep better</p>
+      <h2 class="section-headline font-bold text-white mb-8 text-balance font-display max-w-3xl mx-auto">Stop learning about outages from your users</h2>
+      <p class="text-xl text-white/60 mb-12 text-balance max-w-xl mx-auto leading-relaxed">Set up Driftwood in 5 minutes. First 30 days free. Monitor up to 50 endpoints on the free tier, forever.</p>
+      <a href="#" class="inline-flex items-center justify-center px-12 py-5 text-lg font-semibold bg-brand-500 text-white rounded-xl hover:bg-brand-400 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+        Start monitoring free
+      </a>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/30">
+        <span>No credit card required</span>
+        <span>&middot;</span>
+        <span>5-minute setup</span>
+        <span>&middot;</span>
+        <span>50 endpoints free forever</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark-950 border-t border-dark-700 py-10 text-center text-sm text-neutral-600">
+    Generated with PiratePage
+  </footer>
+
+</body>
+</html>

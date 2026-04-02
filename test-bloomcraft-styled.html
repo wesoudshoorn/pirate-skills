@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloomcraft — AI-Powered Email Marketing for E-Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+              950: '#451a03',
+            },
+            dark: {
+              700: '#1f1c1a',
+              800: '#181614',
+              900: '#121010',
+              950: '#0d0b0a',
+            },
+          },
+          boxShadow: {
+            'soft': '0 2px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)',
+            'lifted': '0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)',
+            'hero': '0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06)',
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .hero-headline { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; }
+    .section-headline { font-size: clamp(1.75rem, 3.5vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; }
+  </style>
+</head>
+<body class="bg-white text-neutral-900 antialiased">
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- 1. HERO — LIGHT -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-6">
+      <!-- Nav -->
+      <nav class="flex items-center justify-between mb-20">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          </div>
+          <span class="text-lg font-semibold tracking-tight" style="font-family:'Instrument Serif',serif;">Bloomcraft</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm text-neutral-500 font-medium">
+          <a href="#features" class="hover:text-neutral-900 transition-colors">Features</a>
+          <a href="#testimonials" class="hover:text-neutral-900 transition-colors">Customers</a>
+          <a href="#pricing" class="hover:text-neutral-900 transition-colors">Pricing</a>
+          <a href="#" class="px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-colors">Start Free Trial</a>
+        </div>
+      </nav>
+
+      <!-- Hero content -->
+      <div class="max-w-4xl">
+        <p class="text-brand-600 text-sm font-semibold tracking-wide uppercase mb-4">AI-Powered Email Marketing</p>
+        <h1 class="hero-headline text-neutral-900 mb-6" style="font-family:'Instrument Serif',serif;">Email campaigns that know your customers by name</h1>
+        <p class="text-neutral-500 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">Bloomcraft writes, designs, and sends hyper-personal email campaigns for your e-commerce store. More revenue per send, zero copywriting required.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#" class="px-8 py-3.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-colors shadow-soft">Start Free — No Card Needed</a>
+          <a href="#" class="px-8 py-3.5 text-neutral-600 text-sm font-semibold border border-neutral-300 rounded-lg hover:border-neutral-400 transition-colors">See How It Works</a>
+        </div>
+      </div>
+
+      <!-- Screenshot mock -->
+      <div class="mt-16 translate-y-16 relative">
+        <div class="bg-neutral-50 border border-neutral-200 shadow-hero rounded-2xl overflow-hidden">
+          <div class="flex items-center gap-2 px-5 py-3 border-b border-neutral-200 bg-white">
+            <div class="w-3 h-3 rounded-full bg-neutral-300"></div>
+            <div class="w-3 h-3 rounded-full bg-neutral-300"></div>
+            <div class="w-3 h-3 rounded-full bg-neutral-300"></div>
+            <div class="ml-4 flex-1 h-5 bg-neutral-100 rounded-full max-w-xs"></div>
+          </div>
+          <div class="p-6 md:p-10">
+            <div class="grid md:grid-cols-3 gap-6">
+              <!-- Sidebar -->
+              <div class="space-y-4">
+                <div class="h-4 w-28 bg-neutral-200 rounded"></div>
+                <div class="space-y-2">
+                  <div class="h-10 bg-brand-50 rounded-lg border border-brand-200 flex items-center px-3">
+                    <div class="h-3 w-24 bg-brand-300 rounded"></div>
+                  </div>
+                  <div class="h-10 bg-white rounded-lg border border-neutral-200 flex items-center px-3">
+                    <div class="h-3 w-20 bg-neutral-200 rounded"></div>
+                  </div>
+                  <div class="h-10 bg-white rounded-lg border border-neutral-200 flex items-center px-3">
+                    <div class="h-3 w-16 bg-neutral-200 rounded"></div>
+                  </div>
+                </div>
+                <div class="mt-6 h-4 w-20 bg-neutral-200 rounded"></div>
+                <div class="space-y-2">
+                  <div class="h-8 bg-neutral-100 rounded-lg"></div>
+                  <div class="h-8 bg-neutral-100 rounded-lg"></div>
+                </div>
+              </div>
+              <!-- Main content area -->
+              <div class="md:col-span-2 bg-white rounded-xl border border-neutral-200 p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <div class="h-5 w-40 bg-neutral-200 rounded"></div>
+                  <div class="h-8 w-24 bg-brand-500 rounded-lg"></div>
+                </div>
+                <div class="space-y-4">
+                  <div class="h-3 w-full bg-neutral-100 rounded"></div>
+                  <div class="h-3 w-5/6 bg-neutral-100 rounded"></div>
+                  <div class="h-3 w-4/6 bg-neutral-100 rounded"></div>
+                </div>
+                <div class="mt-6 grid grid-cols-2 gap-4">
+                  <div class="bg-neutral-50 rounded-lg p-4 border border-neutral-100">
+                    <div class="h-6 w-12 bg-brand-200 rounded mb-2"></div>
+                    <div class="h-3 w-20 bg-neutral-200 rounded"></div>
+                  </div>
+                  <div class="bg-neutral-50 rounded-lg p-4 border border-neutral-100">
+                    <div class="h-6 w-16 bg-brand-200 rounded mb-2"></div>
+                    <div class="h-3 w-24 bg-neutral-200 rounded"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- 2. SOCIAL PROOF LOGO BAR -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <section class="bg-neutral-50 pt-32 py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-6">
+      <p class="text-neutral-400 text-sm font-medium text-center mb-10 tracking-wide uppercase">Trusted by 2,400+ e-commerce brands worldwide</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-40">
+        <span class="text-2xl text-neutral-900" style="font-family:'Instrument Serif',serif;">Lumierre</span>
+        <span class="text-2xl text-neutral-900" style="font-family:'Instrument Serif',serif;">Petalbox</span>
+        <span class="text-2xl text-neutral-900" style="font-family:'Instrument Serif',serif;">ThreadCo</span>
+        <span class="text-2xl text-neutral-900" style="font-family:'Instrument Serif',serif;">Driftwood</span>
+        <span class="text-2xl text-neutral-900" style="font-family:'Instrument Serif',serif;">Nomad&Co</span>
+        <span class="text-2xl text-neutral-900" style="font-family:'Instrument Serif',serif;">Greenleaf</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- 3. PAIN — BEFORE / AFTER -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <section class="bg-neutral-50 py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-600 text-sm font-semibold tracking-wide uppercase mb-4">The Old Way vs. Bloomcraft</p>
+        <h2 class="section-headline text-neutral-900 mb-6" style="font-family:'Instrument Serif',serif;">Stop sending emails your customers ignore</h2>
+        <p class="text-neutral-500 text-lg leading-relaxed">Most e-commerce email is generic. Same blast, same discount, same unsubscribe. Bloomcraft makes every message feel like it was written for one person — because it was.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Before -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </div>
+            <h3 class="text-neutral-900 font-semibold text-lg" style="font-family:'Instrument Serif',serif;">Without Bloomcraft</h3>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex gap-3 text-neutral-500"><span class="text-red-300 mt-0.5">&#10005;</span> Spend 4+ hours writing each campaign from scratch</li>
+            <li class="flex gap-3 text-neutral-500"><span class="text-red-300 mt-0.5">&#10005;</span> Same subject line goes to your entire list</li>
+            <li class="flex gap-3 text-neutral-500"><span class="text-red-300 mt-0.5">&#10005;</span> Open rates stuck around 14%, declining every quarter</li>
+            <li class="flex gap-3 text-neutral-500"><span class="text-red-300 mt-0.5">&#10005;</span> No idea which products to recommend to whom</li>
+            <li class="flex gap-3 text-neutral-500"><span class="text-red-300 mt-0.5">&#10005;</span> Revenue per email flat — growth comes only from list size</li>
+          </ul>
+        </div>
+
+        <!-- After -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+            </div>
+            <h3 class="text-neutral-900 font-semibold text-lg" style="font-family:'Instrument Serif',serif;">With Bloomcraft</h3>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex gap-3 text-neutral-500"><span class="text-brand-500 mt-0.5">&#10003;</span> AI writes campaign copy in your brand voice in minutes</li>
+            <li class="flex gap-3 text-neutral-500"><span class="text-brand-500 mt-0.5">&#10003;</span> Every subscriber gets a personalized subject line</li>
+            <li class="flex gap-3 text-neutral-500"><span class="text-brand-500 mt-0.5">&#10003;</span> Average open rates jump to 38% within 60 days</li>
+            <li class="flex gap-3 text-neutral-500"><span class="text-brand-500 mt-0.5">&#10003;</span> Smart product recs based on browse + purchase history</li>
+            <li class="flex gap-3 text-neutral-500"><span class="text-brand-500 mt-0.5">&#10003;</span> Revenue per email grows 2.7x — same list, better results</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- 4. FEATURES BENTO — 5 CARDS ON brand-50 -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <section id="features" class="bg-brand-50 py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-600 text-sm font-semibold tracking-wide uppercase mb-4">Features</p>
+        <h2 class="section-headline text-neutral-900 mb-6" style="font-family:'Instrument Serif',serif;">Everything you need, nothing you don't</h2>
+        <p class="text-neutral-500 text-lg leading-relaxed">From first draft to final send, Bloomcraft handles the entire email workflow so you can focus on running your store.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 — large -->
+        <div class="md:col-span-2 bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 bg-brand-50 border border-brand-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-neutral-900 font-semibold text-lg mb-2" style="font-family:'Instrument Serif',serif;">AI Copywriter</h3>
+              <p class="text-neutral-500 leading-relaxed">Describe your campaign goal in a sentence. Bloomcraft generates subject lines, preview text, headlines, body copy, and CTAs — all in your brand voice. Edit inline or hit send.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <div class="w-12 h-12 bg-brand-50 border border-brand-100 rounded-2xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+          </div>
+          <h3 class="text-neutral-900 font-semibold text-lg mb-2" style="font-family:'Instrument Serif',serif;">Smart Segmentation</h3>
+          <p class="text-neutral-500 leading-relaxed">Auto-segments your list by purchase behavior, browse history, and engagement level. No manual tagging.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <div class="w-12 h-12 bg-brand-50 border border-brand-100 rounded-2xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z"/></svg>
+          </div>
+          <h3 class="text-neutral-900 font-semibold text-lg mb-2" style="font-family:'Instrument Serif',serif;">Drag-Free Designer</h3>
+          <p class="text-neutral-500 leading-relaxed">No drag-and-drop builder needed. Bloomcraft generates on-brand email layouts from your product catalog automatically.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <div class="w-12 h-12 bg-brand-50 border border-brand-100 rounded-2xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+          </div>
+          <h3 class="text-neutral-900 font-semibold text-lg mb-2" style="font-family:'Instrument Serif',serif;">Real-Time Analytics</h3>
+          <p class="text-neutral-500 leading-relaxed">Track opens, clicks, and revenue per campaign in real time. See exactly which product recommendations drive the most sales.</p>
+        </div>
+
+        <!-- Card 5 — highlight (brand accent) -->
+        <div class="bg-brand-500 rounded-2xl p-8 md:p-10 text-white shadow-soft">
+          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" style="font-family:'Instrument Serif',serif;">Send-Time Optimization</h3>
+          <p class="text-white/80 leading-relaxed">Bloomcraft learns when each subscriber is most likely to open and delivers at the perfect moment — per person, not per time zone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- 5. TESTIMONIALS — 3 METRIC CARDS -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <section id="testimonials" class="bg-white py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-600 text-sm font-semibold tracking-wide uppercase mb-4">Results</p>
+        <h2 class="section-headline text-neutral-900 mb-6" style="font-family:'Instrument Serif',serif;">Numbers that speak for themselves</h2>
+        <p class="text-neutral-500 text-lg leading-relaxed">Real results from real stores. Here's what Bloomcraft customers see within the first 90 days.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <p class="text-brand-600 text-4xl font-bold mb-1" style="font-family:'Instrument Serif',serif;">2.7x</p>
+          <p class="text-neutral-400 text-sm font-medium mb-6">Revenue per email</p>
+          <p class="text-neutral-500 leading-relaxed mb-6">"We were sending the same weekly newsletter to 45k subscribers. Bloomcraft split them into micro-segments and personalized every send. Revenue per email nearly tripled in two months."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center text-sm font-semibold text-neutral-400">JM</div>
+            <div>
+              <p class="text-neutral-900 text-sm font-semibold">Jamie Morales</p>
+              <p class="text-neutral-400 text-xs">Head of Growth, Petalbox</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <p class="text-brand-600 text-4xl font-bold mb-1" style="font-family:'Instrument Serif',serif;">38%</p>
+          <p class="text-neutral-400 text-sm font-medium mb-6">Average open rate</p>
+          <p class="text-neutral-500 leading-relaxed mb-6">"Our open rates were dropping every quarter. Within 60 days of switching to Bloomcraft, we went from 14% to 38%. The personalized subject lines are genuinely impressive."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center text-sm font-semibold text-neutral-400">SL</div>
+            <div>
+              <p class="text-neutral-900 text-sm font-semibold">Sora Lin</p>
+              <p class="text-neutral-400 text-xs">Founder, ThreadCo</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-8 md:p-10 hover:shadow-soft transition-shadow">
+          <p class="text-brand-600 text-4xl font-bold mb-1" style="font-family:'Instrument Serif',serif;">12 hrs</p>
+          <p class="text-neutral-400 text-sm font-medium mb-6">Saved per week</p>
+          <p class="text-neutral-500 leading-relaxed mb-6">"I used to spend half my week writing emails and building templates. Now I describe what I want, Bloomcraft does the rest. I've redirected that time into product development."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center text-sm font-semibold text-neutral-400">RD</div>
+            <div>
+              <p class="text-neutral-900 text-sm font-semibold">Ravi Desai</p>
+              <p class="text-neutral-400 text-xs">Co-Founder, Driftwood</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-neutral-400 text-xs text-center mt-8">* Testimonials are AI-generated for demonstration purposes. Metrics represent plausible outcomes based on industry benchmarks.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- 6. CTA — DARK -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <section class="bg-dark-950 py-24 md:py-32">
+    <div class="mx-auto max-w-7xl px-6 text-center">
+      <p class="text-white/40 text-sm font-semibold tracking-wide uppercase mb-4">Ready to grow?</p>
+      <h2 class="section-headline text-white mb-6 max-w-3xl mx-auto" style="font-family:'Instrument Serif',serif;">Start sending smarter emails today</h2>
+      <p class="text-white/60 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">Join 2,400+ e-commerce brands using Bloomcraft to write better campaigns, reach the right customers, and drive more revenue from every send.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#" class="px-8 py-3.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-colors shadow-soft">Start Your Free Trial</a>
+        <a href="#" class="px-8 py-3.5 text-white/60 text-sm font-semibold border border-white/20 rounded-lg hover:border-white/40 transition-colors">Talk to Sales</a>
+      </div>
+      <p class="text-white/30 text-xs mt-8">Free 14-day trial. No credit card required. Cancel anytime.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark-950 border-t border-white/10 py-12">
+    <div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <div class="w-6 h-6 bg-brand-500 rounded-md flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        </div>
+        <span class="text-white/60 text-sm" style="font-family:'Instrument Serif',serif;">Bloomcraft</span>
+      </div>
+      <p class="text-white/30 text-xs">This is an AI-generated demo landing page. Bloomcraft is a fictional product.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
