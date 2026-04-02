@@ -15,11 +15,23 @@ The output is a real landing page with Tailwind CSS styling, proper section stru
 
 ## Install
 
+### Global (recommended for personal use)
+
 ```bash
 curl -sSL https://raw.githubusercontent.com/wesoudshoorn/pirate-skills/main/install.sh | bash
 ```
 
-Or manually:
+Installs to `~/.claude/skills/piratepage/`. Auto-checks for updates every time you use `/piratepage`.
+
+### Project-level (recommended for teams)
+
+```bash
+curl -sSL https://raw.githubusercontent.com/wesoudshoorn/pirate-skills/main/install.sh | bash -s -- --project
+```
+
+Installs to `.claude/skills/piratepage/` in your current project. Commit it so teammates get the skill when they clone the repo. Updates create diffs in your repo — that's the tradeoff for easy team sharing.
+
+### Manual
 
 ```bash
 git clone https://github.com/wesoudshoorn/pirate-skills.git ~/.claude/skills/piratepage

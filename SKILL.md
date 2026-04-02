@@ -1,6 +1,6 @@
 ---
 name: piratepage
-version: 2.0.0
+version: 2.1.0
 description: |
   Generate landing pages with conversion copywriting expertise.
   Use when: "generate a landing page", "piratepage", "create a page",
@@ -15,6 +15,56 @@ allowed-tools:
   - Agent
   - AskUserQuestion
   - WebFetch
+---
+
+## Preamble (run silently before starting)
+
+Check for updates (tries both global and project install paths):
+
+```bash
+_UPD=$( ~/.claude/skills/piratepage/bin/piratepage-update-check 2>/dev/null || \
+        .claude/skills/piratepage/bin/piratepage-update-check 2>/dev/null || true )
+echo "${_UPD:-UP_TO_DATE}"
+```
+
+**Handle the result before continuing:**
+
+- **If output starts with `JUST_UPGRADED`**: Parse the old and new versions. Read `CHANGELOG.md` from the skill directory, find the entries between old and new version. Show a brief message: "piratepage updated to vX.Y.Z!" with 3 bullet points of what's new. Then continue with Step 1.
+
+- **If output starts with `UPGRADE_AVAILABLE`**: Parse old and new versions from the output. Use AskUserQuestion:
+  - Question: "piratepage **vNEW** is available (you're on vOLD). Upgrade now?"
+  - Options: `["Yes, upgrade now", "Not now", "Don't ask again"]`
+  - **If "Yes, upgrade now"**:
+    1. Detect install type:
+       ```bash
+       if [ -d "$HOME/.claude/skills/piratepage/.git" ]; then
+         echo "global-git"
+       elif [ -d ".claude/skills/piratepage" ]; then
+         echo "project-vendored"
+       else
+         echo "global-vendored"
+       fi
+       ```
+    2. For `global-git`: `cd ~/.claude/skills/piratepage && git fetch origin --quiet && git reset --hard origin/main --quiet`
+    3. For vendored: `bash ~/.claude/skills/piratepage/install.sh --update` or `bash .claude/skills/piratepage/install.sh --update`
+    4. Write upgrade marker:
+       ```bash
+       mkdir -p ~/.piratepage
+       echo "OLD_VERSION" > ~/.piratepage/just-upgraded-from
+       rm -f ~/.piratepage/last-update-check ~/.piratepage/update-snoozed
+       ```
+    5. Show "Upgraded! Here's what's new:" with changelog summary. Continue with Step 1.
+  - **If "Not now"**: Write snooze file and continue:
+    ```bash
+    mkdir -p ~/.piratepage
+    LEVEL=1
+    [ -f ~/.piratepage/update-snoozed ] && LEVEL=$(( $(awk '{print $2}' ~/.piratepage/update-snoozed) + 1 ))
+    echo "REMOTE_VERSION $LEVEL $(date +%s)" > ~/.piratepage/update-snoozed
+    ```
+  - **If "Don't ask again"**: `mkdir -p ~/.piratepage && touch ~/.piratepage/updates-disabled`. Continue with Step 1.
+
+- **If output is `UP_TO_DATE` or empty**: Continue silently with Step 1.
+
 ---
 
 ## Step 1: Page Type First
