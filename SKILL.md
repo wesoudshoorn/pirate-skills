@@ -528,14 +528,43 @@ D) All three
 
 ## Iteration Loop
 
-After presenting, offer:
-A) Looks good, done
-B) Regenerate a specific section (rewrites all 5 tone variants for that section)
-C) Shuffle section order
-D) Add/remove a section (new sections get all 5 tones)
-E) Regenerate whole page with feedback
-F) Export current selection — take the tone combination from the URL hash and output a clean single-tone HTML file (no variations browser chrome)
-G) Visually upgrade this page (color, typography, depth, polish)
+Two-phase flow. Every transition is a forced `AskUserQuestion` choice — never just text the user can ignore or free-type over.
+
+### Phase 1: What's Next? (shown after generation and after every copy change)
+
+Present the page, then immediately use `AskUserQuestion`:
+
+"Your copy is ready — right now it's intentionally unstyled so we could focus on the words. What's next?
+
+A) Let's style it — I'll show you a few visual directions
+B) I want to change the copy first
+C) Export as-is — take the tone combination from the URL hash and output a clean single-tone HTML file (no variations browser chrome)
+D) Done"
+
+- **A → Visual Upgrade** (Option G flow below)
+- **B → Phase 2** (copy editing sub-menu)
+- **C → Export** (export flow)
+- **D → Exit**
+
+### Phase 2: Copy Editing (shown only when user picks B in Phase 1)
+
+Use `AskUserQuestion`:
+
+"What do you want to change?
+
+A) Regenerate a specific section (rewrites all 5 tone variants)
+B) Shuffle section order
+C) Add/remove a section (new sections get all 5 tones)
+D) Regenerate whole page with feedback
+E) Actually, let's style it instead"
+
+- **A → Section-Level Changes**, then back to Phase 1
+- **B → Shuffle**, then back to Phase 1
+- **C → Add/Remove**, then back to Phase 1
+- **D → Full Regeneration with Feedback**, then back to Phase 1
+- **E → Visual Upgrade** (Option G flow below)
+
+After every copy change, always loop back to **Phase 1** via `AskUserQuestion` — never drop the user into free-text. This keeps the visual upgrade surfaced as the natural next step.
 
 ### Section-Level Changes
 Rewrite all 5 tone variants for that section. Run quality checks on all variants. Edit HTML in place.
