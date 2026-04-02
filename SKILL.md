@@ -17,6 +17,24 @@ allowed-tools:
   - WebFetch
 ---
 
+## Step 0: Fast Mode
+
+If the user's message contains `fast` followed by a URL (e.g., `/piratepage fast talkjs.com`), skip all interactive questions and generate immediately:
+
+1. Extract the URL from the arguments. Prepend `https://` if no protocol is given.
+2. WebFetch the URL to extract positioning data.
+3. Auto-detect language from the scraped content. Default to English if unclear.
+4. Pre-fill all 9 positioning answers from the extracted content. Use your best judgment — do not ask the user to confirm any of them.
+5. Set page type to **Homepage**, voice to **Professional**.
+6. Save everything to `piratepage.json`.
+7. Build the section outline using the Section Selection Guide and Variant Selection Rules (default to richest variants). Do NOT present the outline for approval — go straight to generation.
+8. Generate the full HTML, run all quality checks, and open in the browser.
+9. Present the page and enter the **Iteration Loop** (Step 5 choices) so the user can tweak if needed.
+
+**Do not ask any questions in fast mode.** The entire point is zero interaction until the page is in the browser.
+
+---
+
 ## Step 1: Page Type First
 
 Check for existing positioning data:
