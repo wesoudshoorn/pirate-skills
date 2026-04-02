@@ -19,7 +19,7 @@ allowed-tools:
 
 ## Step 0: Fast Mode
 
-If the user's message contains `fast` followed by a URL (e.g., `/piratepage fast talkjs.com`), skip all interactive questions and generate immediately:
+If the user's message contains `fast` followed by a URL (e.g., `/piratepage fast piratepage.cc`), skip all interactive questions and generate immediately:
 
 1. Extract the URL from the arguments. Prepend `https://` if no protocol is given.
 2. WebFetch the URL to extract positioning data.

@@ -1,18 +1,18 @@
 {
-  "productName": "TalkJS",
+  "productName": "PiratePage",
   "pageType": "homepage",
   "language": "en",
   "voice": "Professional",
   "positioning": {
-    "whatIsIt": "A chat API and SDK that lets developers add production-ready in-app messaging (1-on-1, group, public) in minutes — with pre-built UI components and SDKs for 14+ frameworks.",
-    "whatIsItNot": "Not a standalone chat app. Not a basic widget. It's full messaging infrastructure with customizable UI, moderation, AI bot support, and enterprise-grade security.",
-    "keyTakeaway": "Ship in-app chat in minutes instead of months. Pre-built UIs you can customize to look exactly like your product.",
-    "wordOfMouth": "We dropped months of dev time using their pre-built chat UIs, and we could still make it look exactly like our product.",
-    "competitors": "Direct: Stream Chat, Twilio, Firebase. Indirect: building chat from scratch in-house. Manual: stitching together WebSocket servers, databases, and UI from scratch.",
-    "howDifferent": "Pre-built pixel-perfect UI components across 14+ frameworks. AI-ready bot integration. 130M+ monthly messages, 24B+ API calls at scale. GDPR-compliant, TLS v1.3, 99.9% uptime SLA.",
-    "whyUsersWant": "Launch chat features fast without building from scratch. Marketplace buyer-seller messaging. White-label chat for SaaS. AI chatbot integration. Global scale without infrastructure headaches.",
-    "objections": "Will it look like our product or generic? Can it handle our scale? Is the data secure/GDPR compliant? How hard is integration with our stack? What happens if we outgrow the free tier?",
-    "primaryCTA": "Try for free"
+    "whatIsIt": "An AI landing page generator built as a Claude Code skill. Paste a URL, answer 9 positioning questions, get a professional landing page with 5 tone variations in 2 minutes.",
+    "whatIsItNot": "Not a drag-and-drop page builder. Not a template library. It's a copywriting-first generator that writes specific, swap-tested copy based on your actual positioning.",
+    "keyTakeaway": "Landing pages with copy so specific that a competitor couldn't steal your headline. Built on 16 versions of battle-tested conversion copywriting rules.",
+    "wordOfMouth": "It asked me 9 questions and generated a page with better copy than our marketing team wrote in two weeks.",
+    "competitors": "Direct: v0, Framer AI, Mixo. Indirect: hiring a copywriter + developer. Manual: writing landing page copy from scratch in a doc.",
+    "howDifferent": "Copywriting rules extracted from 200+ PRs of prompt engineering. 81/81 blind test accuracy. Swap test built in — every headline must be specific to your product or it rewrites automatically. 5 tone variations per section.",
+    "whyUsersWant": "Ship a landing page fast without generic AI copy. Test positioning before committing to a full build. Get conversion-focused copy that passes the swap test. Compare 5 tones side by side.",
+    "objections": "Will the copy actually be specific to my product? Can I customize the design? Is it just another AI page generator with generic output? What if I need more than a landing page?",
+    "primaryCTA": "Try it free"
   },
   "outline": [
     { "section": "hero", "variant": "with-screenshot" },

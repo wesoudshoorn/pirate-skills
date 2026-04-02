@@ -42,7 +42,7 @@ Then paste your URL or describe your product.
 Skip all questions and generate instantly:
 
 ```
-/piratepage fast talkjs.com
+/piratepage fast piratepage.cc
 ```
 
 Scrapes the URL, auto-fills positioning, picks Homepage layout, and opens the page in your browser. Zero interaction until you see the result.
