@@ -4,6 +4,8 @@ AI-powered landing page generator for Claude Code. Paste a URL, get a profession
 
 Built on 16 versions of battle-tested conversion copywriting rules (81/81 blind test accuracy). Not generic AI copy. Opinionated, specific, and trained on principles from leading marketing copywriters.
 
+**Current version: 0.7.0** · [Changelog](CHANGELOG.md)
+
 ## What it does
 
 1. You type `/piratepage` and paste your URL
@@ -35,10 +37,36 @@ In Claude Code, type:
 
 Then paste your URL or describe your product.
 
+## Fast Mode
+
+Skip all questions and generate instantly:
+
+```
+/piratepage fast talkjs.com
+```
+
+Scrapes the URL, auto-fills positioning, picks Homepage layout, and opens the page in your browser. Zero interaction until you see the result.
+
+## Variations Browser
+
+Every section generates in 5 tones — punchy, conversational, benefit-focused, problem-aware, and bold-confident. Hover over any section to reveal numbered buttons (1-5) and click to switch tones. The URL hash saves your selections.
+
+## Section Gallery
+
+Browse all 21 section types and their variants visually:
+
+```
+/piratepage-gallery
+```
+
+Star your favorites, copy the preference JSON, and paste it back to lock in your preferred sections for future pages.
+
 ## What's inside
 
-- **SKILL.md** (404 lines) — The complete skill: copywriting rules, positioning wizard, quality self-validation, 5 page types, 20 section types, 5 variation tones
-- **references/** (20 HTML files) — Tailwind HTML patterns for every section type and variant
+- **SKILL.md** — The complete skill: copywriting rules, positioning wizard, quality self-validation, 5 page types, 21 section types, 5 variation tones
+- **GALLERY.md** — Section gallery skill definition
+- **references/** (21 HTML files) — Tailwind HTML patterns for every section type and variant
+- **build-gallery.sh** — Generates the interactive section gallery
 - **install.sh** — One-liner installer
 
 ## 5 Page Types
@@ -49,13 +77,13 @@ Then paste your URL or describe your product.
 - **Pricing Page** — Plans front and center (4-6 sections)
 - **Customer Story** — Case study narrative (5-7 sections)
 
-## 20 Section Types
+## 21 Section Types
 
-hero, pain, how-it-works, features-grid (5 variants including bento), features-list, testimonials, social-proof, stats, results, pricing, faq, cta, comparison-table, screenshot, showcase, text-block, news, code-sample, founder-story, statement
+navbar, hero, pain, how-it-works, features-grid (5 variants including bento), features-list, testimonials, social-proof, stats, results, pricing, faq, cta, comparison-table, screenshot, showcase, text-block, news, code-sample, founder-story, statement
 
 ## Quality Self-Validation
 
-Before showing you anything, the skill runs 9 checks:
+Before showing you anything, the skill runs 10 checks:
 
 1. **Swap test** — Hero/CTA headlines must be specific to YOUR product
 2. **Headline scan** — Headlines tell the complete value story top-to-bottom
@@ -66,6 +94,7 @@ Before showing you anything, the skill runs 9 checks:
 7. **Screenshot placeholder check** — Process sections include image placeholders
 8. **CTA check** — [Action Verb] + [What They Get], no "Learn More"
 9. **Topic anchoring** — Every headline makes clear what the page is about
+10. **Variation distinctness** — Each tone variant is meaningfully different
 
 ## Export Formats
 

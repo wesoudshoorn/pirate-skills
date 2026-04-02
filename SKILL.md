@@ -1,6 +1,6 @@
 ---
 name: piratepage
-version: 3.0.0
+version: 0.7.0
 description: |
   Generate landing pages with conversion copywriting expertise.
   Use when: "generate a landing page", "piratepage", "create a page",
