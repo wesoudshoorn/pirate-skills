@@ -310,29 +310,13 @@ Only read reference files for sections in the approved outline. If a file doesn'
 
 ### Image Placeholders
 
-Use mock UI wireframe placeholders, not just grey boxes:
+The reference files contain abstract wireframe UI mockups as placeholders — not plain grey boxes. These wireframes use `aspect-ratio` for scalable sizing (never `min-height`):
 
-```html
-<!-- Simple placeholder -->
-<div class="bg-neutral-100 rounded-xl min-h-[200px] flex items-center justify-center text-neutral-400 text-sm">
-  [img: description of what goes here]
-</div>
+- **Large (aspect-video):** Dashboard wireframes with browser chrome, sidebar, stat cards, charts/tables. Used in hero with-screenshot, screenshot sections.
+- **Medium (aspect-[4/3]):** Form/card or chart+metrics wireframes. Used in hero with-image/with-proof, features-list spotlight, features-grid tabs.
+- **Small (aspect-[3/2]):** Mini list or card-preview wireframes. Used in features-grid showcase, showcase cards, how-it-works steps.
 
-<!-- Mock screenshot placeholder (use for product UI sections) -->
-<div class="bg-neutral-100 rounded-xl overflow-hidden">
-  <div class="bg-neutral-200 h-8 flex items-center px-3 gap-1.5">
-    <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
-    <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
-    <div class="w-2.5 h-2.5 rounded-full bg-neutral-300"></div>
-    <div class="flex-1 mx-8 h-3.5 bg-neutral-300 rounded"></div>
-  </div>
-  <div class="p-6 min-h-[180px] flex items-center justify-center text-neutral-400 text-sm">
-    [img: description of the screenshot]
-  </div>
-</div>
-```
-
-Use mock screenshot placeholders for: hero (with-screenshot), how-it-works (with-images), features-grid (bento, showcase), screenshot section. Use simple placeholders for: testimonial avatars, logo bars, generic images.
+Copy the wireframe HTML directly from the reference files. Each wireframe keeps a tiny `[img: {description}]` label at bottom-right for designer reference. Do not replace wireframes with plain grey boxes.
 
 ### Invented Content Warning
 
@@ -359,7 +343,7 @@ Run BEFORE presenting to user. Fix failures silently.
 4. **Banned Pattern Scan** — Check all copy against banned phrases and vocabulary.
 5. **Eyebrow Check** — 2-4 words, product facts, not labels, not sentences.
 6. **FAQ Headline Check** — Must NOT be "FAQ" or "Frequently Asked Questions." Lead with the #1 objection.
-7. **Screenshot Placeholder Check** — Process sections (how-it-works) and product UI sections must have image placeholders. Use mock screenshot style for product UI.
+7. **Wireframe Check** — Product UI sections must use wireframe placeholders from reference files (aspect-ratio sized, not min-height grey boxes). Never use plain `[img: ...]` text boxes.
 8. **CTA Check** — [Action Verb] + [What They Get]. No "Learn More" or "Get Started."
 9. **Topic Anchoring Check** — Every headline must make clear what the page is about. If a headline could be on any website about anything, it's too generic. Rewrite with the product's category or specific feature.
 
