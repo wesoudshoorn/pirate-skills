@@ -171,9 +171,12 @@ Banned vocabulary: delve, crucial, robust, comprehensive, nuanced, leverage, fos
 
 ## Section Selection Guide
 
-### Available Sections (20 types)
+### Available Sections (21 types)
 
 When building an outline, choose from these. The skill has HTML reference files for each.
+
+**Navigation:**
+- `navbar` — Sticky top nav bar. 2 variants: default (text logo), with-logo-placeholder (image logo slot). Always placed first, before hero.
 
 **Opening sections:**
 - `hero` — The 5-second pitch. 5 variants: default, with-image, with-proof, with-screenshot, with-checklist.
@@ -232,27 +235,27 @@ When building an outline, choose from these. The skill has HTML reference files 
 ### Page Type Templates
 
 **Homepage** (6-10 sections):
-MUST: hero, 1-2 feature sections (40-60% of page), cta
+MUST: navbar, hero, 1-2 feature sections (40-60% of page), cta
 SHOULD: pain OR how-it-works, social-proof (logo bar), testimonials, faq
 RECOMMENDED: Include `social-proof` with 4-6 recognizable logos or trust badges after the hero or after testimonials.
 
 **Product Page** (6-8 sections):
-MUST: hero (with-screenshot), features-grid or features-list, cta
+MUST: navbar, hero (with-screenshot), features-grid or features-list, cta
 SHOULD: how-it-works (with-images), testimonials or stats
 SKIP: pain
 
 **Service Page** (5-7 sections):
-MUST: hero, how-it-works, cta
+MUST: navbar, hero, how-it-works, cta
 SHOULD: testimonials or results, features-list
 SKIP: features-grid, pricing
 
 **Pricing Page** (4-6 sections):
-MUST: hero (minimal), pricing, faq, cta
+MUST: navbar, hero (minimal), pricing, faq, cta
 SHOULD: testimonials (ROI-focused), comparison-table
 SKIP: pain, how-it-works
 
 **Customer Story** (5-7 sections):
-MUST: hero, results, cta
+MUST: navbar, hero, results, cta
 SHOULD: pain or text-block, testimonials
 SKIP: pricing, features-grid
 
@@ -297,6 +300,7 @@ Only read reference files for sections in the approved outline. If a file doesn'
 </head>
 <body class="antialiased bg-white text-neutral-900">
   <div class="min-h-screen">
+    <!-- navbar goes here (outside the content container) -->
     <div class="max-w-5xl mx-auto px-8 py-8 space-y-16">
       <!-- sections -->
     </div>
