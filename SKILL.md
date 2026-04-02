@@ -96,7 +96,11 @@ Save everything to `piratepage.json`.
 
 Now you have page type, language, and validated positioning. Generate the page.
 
-1. Build a section outline based on page type + Section Selection Guide below.
+**Section Preferences:** If `piratepage.json` contains a `preferredSections` array, prefer those variants when building the outline. If a preferred variant conflicts with the content (e.g., `hero: with-screenshot` but no product UI), note the conflict and suggest an alternative. Fill remaining required sections using the page type template and variant selection rules.
+
+**Paste-back:** If the user pastes a JSON object containing `preferredSections` at any point, merge it into `piratepage.json` and confirm.
+
+1. Build a section outline based on page type + Section Selection Guide below (respecting any `preferredSections`).
 2. Present the outline with "generation choices" explaining WHY each section was picked.
 3. Ask for approval: A) Generate it. B) Change something. C) Different page type.
 4. Generate the full HTML, run quality checks, open in browser.
@@ -407,6 +411,7 @@ Save feedback to `piratepage.json`. Apply as constraints. Re-run all quality che
 
 - Stay conversational. Natural language in AskUserQuestion prompts, not robotic lists.
 - Briefly explain 2-3 key copy decisions after presenting the page.
+- **Section Gallery:** Users can run `/piratepage-gallery` to browse all section types and variants visually, mark favorites, and copy a preference array to paste back.
 - Never present without quality checks.
 - `piratepage.json` is persistent state. Update on every change.
 - Detect skill directory dynamically — never hardcode paths.
