@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+</head>
+<body class="antialiased bg-white text-neutral-900">
+  <div class="min-h-screen">
+
+    <!-- NAVBAR: default variant -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200">
+      <div class="max-w-5xl mx-auto px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="/" class="text-lg font-bold text-black tracking-tight shrink-0">{productName}</a>
+          <div class="hidden md:flex items-center gap-8">
+            <a href="#" class="text-sm font-medium text-neutral-600 hover:text-black transition-colors">{navLinks[0]}</a>
+            <a href="#" class="text-sm font-medium text-neutral-600 hover:text-black transition-colors">{navLinks[1]}</a>
+            <a href="#" class="text-sm font-medium text-neutral-600 hover:text-black transition-colors">{navLinks[2]}</a>
+            <a href="#" class="text-sm font-medium text-neutral-600 hover:text-black transition-colors">{navLinks[3]}</a>
+          </div>
+          <div class="hidden md:block">
+            <a href="#" class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-black rounded-lg hover:bg-neutral-800 transition-colors">{ctaButton}</a>
+          </div>
+          <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden p-2 text-neutral-600 hover:text-black" aria-label="Toggle menu">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+            </svg>
+          </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-100 py-4 space-y-3">
+          <a href="#" class="block text-sm font-medium text-neutral-600 hover:text-black transition-colors">{navLinks[0]}</a>
+          <a href="#" class="block text-sm font-medium text-neutral-600 hover:text-black transition-colors">{navLinks[1]}</a>
+          <a href="#" class="block text-sm font-medium text-neutral-600 hover:text-black transition-colors">{navLinks[2]}</a>
+          <a href="#" class="block text-sm font-medium text-neutral-600 hover:text-black transition-colors">{navLinks[3]}</a>
+          <a href="#" class="inline-flex items-center justify-center w-full px-5 py-2.5 text-sm font-medium text-white bg-black rounded-lg hover:bg-neutral-800 transition-colors mt-2">{ctaButton}</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto px-8 py-8 space-y-16">
+
+      <!-- Hero section placeholder -->
+      <section class="py-8 md:py-12">
+        <div class="max-w-2xl">
+          <p class="text-sm font-medium uppercase tracking-wider text-neutral-500 mb-3">{eyebrow}</p>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-black mb-6 text-balance">{headline}</h1>
+          <p class="text-xl text-neutral-600 mb-8 text-balance">{subheadline}</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-lg hover:bg-neutral-800 transition-colors">{primaryCTA}</a>
+            <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-black border border-neutral-300 rounded-lg hover:bg-neutral-50 transition-colors">{secondaryCTA}</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social proof placeholder -->
+      <section class="py-8 md:py-12">
+        <p class="text-sm font-medium text-neutral-400 mb-6">{socialProofHeadline}</p>
+        <div class="flex flex-wrap items-center gap-6">
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">{logo}</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">{logo}</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">{logo}</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">{logo}</div>
+          <div class="bg-neutral-100 rounded-lg px-6 py-3 text-neutral-400 font-medium text-sm">{logo}</div>
+        </div>
+      </section>
+
+      <!-- Features placeholder -->
+      <section class="py-8 md:py-12">
+        <h2 class="text-3xl font-bold text-black mb-4">{sectionHeadline}</h2>
+        <p class="text-lg text-neutral-600 mb-8">{sectionSubheadline}</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="space-y-3">
+            <div class="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center text-neutral-400 text-sm">1</div>
+            <h3 class="text-lg font-semibold text-black">{featureTitle}</h3>
+            <p class="text-neutral-600">{featureDescription}</p>
+          </div>
+          <div class="space-y-3">
+            <div class="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center text-neutral-400 text-sm">2</div>
+            <h3 class="text-lg font-semibold text-black">{featureTitle}</h3>
+            <p class="text-neutral-600">{featureDescription}</p>
+          </div>
+          <div class="space-y-3">
+            <div class="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center text-neutral-400 text-sm">3</div>
+            <h3 class="text-lg font-semibold text-black">{featureTitle}</h3>
+            <p class="text-neutral-600">{featureDescription}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screenshot placeholder -->
+      <section class="py-8 md:py-12">
+        <div class="bg-neutral-100 rounded-2xl min-h-[400px] flex items-center justify-center text-neutral-400 text-sm">[img: {screenshotDescription}]</div>
+      </section>
+
+      <!-- CTA placeholder -->
+      <section class="py-8 md:py-12">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-black mb-4">{ctaHeadline}</h2>
+          <p class="text-lg text-neutral-600 mb-8">{ctaSubheadline}</p>
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black rounded-lg hover:bg-neutral-800 transition-colors">{primaryCTA}</a>
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="border-t border-neutral-200 py-6 text-center text-sm text-neutral-400">
+      Generated with PiratePage
+    </footer>
+  </div>
+</body>
+</html>
