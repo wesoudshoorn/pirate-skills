@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.9.0] - 2026-04-14
+
+### Added
+- Three independent modes: `/piratepage positioning`, `/piratepage mock`, `/piratepage variations`
+- Router with context detection and fast mode shortcut
+- Mode 3: Variations — generate 5 tone options for any section in your codebase with a picker toolbar
+- Picker toolbar (`piratepage-picker.js`) with sliding highlight animation, per-section overlays, URL hash persistence, and clipboard copy
+- Styled picker example page with TalkJS demo content
+- 3 new page types: Competitor page, Feature Tour, Use Case page
+- Page-type-specific quality checks (16 new checks across the 3 types)
+
+### Changed
+- SKILL.md fully restructured from monolithic flow to 3-mode skill (926 → 529 lines)
+- Visual Upgrade system extracted to `references/visual-upgrade.md` (loaded on demand)
+- Mock pages now generate single-tone HTML (no more Variations Browser chrome)
+- Picker uses numbered pills (1-5) instead of tone names
+- Picker toolbar uses frosted glass with double-border trick (white inner ring + dark outer ring) for visibility on any background
+
+### Removed
+- Variations Browser (5-tone inline switching per section) — replaced by Mode 3 picker
+- Inline Visual Upgrade instructions — moved to separate reference file
+
 ## [0.7.0] - 2026-04-02
 
 ### Added
