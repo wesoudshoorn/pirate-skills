@@ -4,7 +4,7 @@ AI-powered landing page generator for Claude Code. Paste a URL, get a profession
 
 Built on 16 versions of battle-tested conversion copywriting rules (81/81 blind test accuracy). Not generic AI copy. Opinionated, specific, and trained on principles from leading marketing copywriters.
 
-**Current version: 0.7.0** · [Changelog](CHANGELOG.md)
+**Current version: 0.9.1** · [Changelog](CHANGELOG.md)
 
 ## What it does
 
