@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.9.1] - 2026-04-16
+
+### Changed
+- Picker toolbar now uses `position:sticky` by default, eliminating content overlap
+- Toolbar is draggable via a 3-bar grip handle on the right side — grab and drop it anywhere in the section
+- Drag is clamped to the section boundary with `overflow:clip` so the toolbar never escapes into adjacent sections
+- Added PiratePage skull logo to the left of the pill numbers with a subtle divider
+- Tighter, more refined toolbar design: smaller pills (26px), reduced padding, lighter shadow
+
 ## [0.9.0] - 2026-04-14
 
 ### Added
