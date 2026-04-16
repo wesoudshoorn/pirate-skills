@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.9.1] - 2026-04-16
+
+### Fixed
+- Install script `REPO_URL` pointed to wrong repo name (`piratepage-skill` → `pirate-skills`)
+- Positioning questions dumped as plain text instead of using `AskUserQuestion` interactive prompts
+
 ## [0.9.0] - 2026-04-14
 
 ### Added

@@ -2,7 +2,7 @@
 set -e
 
 SKILL_DIR="$HOME/.claude/skills/piratepage"
-REPO_URL="https://github.com/wesoudshoorn/piratepage-skill"
+REPO_URL="https://github.com/wesoudshoorn/pirate-skills"
 
 # Determine source: if this script lives inside the skill directory already,
 # use local copy. Otherwise clone from GitHub.
