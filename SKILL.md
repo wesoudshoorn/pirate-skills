@@ -464,57 +464,85 @@ Run IN ADDITION to the standard checks, based on page type.
 
 **Default to the richest variant.** Screenshot placeholders and visual elements make pages more compelling. Only choose simpler variants when the product genuinely has nothing visual. When in doubt, include a screenshot placeholder.
 
-**Hero:** Default: `with-screenshot`. Fall back to `with-checklist` or `with-proof` for non-visual products. `default` (text-only) should almost never be chosen.
-**Features-grid:** Default: `bento` with screenshots. Fall back to `icon-grid` for 6+ brief features, `tabs` for complex sequential features.
-**How-it-works:** Default: `with-images`. Fall back to `default` for non-visual products only.
+- **Hero:** Default: `with-screenshot`.
+  - Fall back to `with-checklist` or `with-proof` for non-visual products.
+  - `default` (text-only) should almost never be chosen.
+- **Features-grid:** Default: `bento` with screenshots.
+  - Fall back to `icon-grid` for 6+ brief features.
+  - Fall back to `tabs` for complex sequential features.
+- **How-it-works:** Default: `with-images`.
+  - Fall back to `default` for non-visual products only.
 
 ### Page Type Templates
 
 **Homepage** (6-10 sections):
-MUST: navbar, hero (with-screenshot preferred), 1-2 feature sections (bento preferred), cta
-SHOULD: pain OR how-it-works (with-images), social-proof, testimonials, faq
+- **MUST:** navbar, hero (with-screenshot preferred), 1-2 feature sections (bento preferred), cta
+- **SHOULD:** pain OR how-it-works (with-images), social-proof, testimonials, faq
 
 **Product Page** (6-8 sections):
-MUST: navbar, hero (with-screenshot), features-grid or features-list, cta
-SHOULD: how-it-works (with-images), testimonials or stats. SKIP: pain
+- **MUST:** navbar, hero (with-screenshot), features-grid or features-list, cta
+- **SHOULD:** how-it-works (with-images), testimonials or stats
+- **SKIP:** pain
 
 **Service Page** (5-7 sections):
-MUST: navbar, hero, how-it-works (with-images), cta
-SHOULD: testimonials or results, features-list. SKIP: features-grid, pricing
+- **MUST:** navbar, hero, how-it-works (with-images), cta
+- **SHOULD:** testimonials or results, features-list
+- **SKIP:** features-grid, pricing
 
 **Pricing Page** (4-6 sections):
-MUST: navbar, hero (minimal), pricing, faq, cta
-SHOULD: testimonials (ROI-focused), comparison-table. SKIP: pain, how-it-works
+- **MUST:** navbar, hero (minimal), pricing, faq, cta
+- **SHOULD:** testimonials (ROI-focused), comparison-table
+- **SKIP:** pain, how-it-works
 
 **Customer Story** (5-7 sections):
-MUST: navbar, hero, results, cta
-SHOULD: pain or text-block, testimonials. SKIP: pricing, features-grid
+- **MUST:** navbar, hero, results, cta
+- **SHOULD:** pain or text-block, testimonials
+- **SKIP:** pricing, features-grid
 
 **Competitor Page** (6-8 sections):
-MUST: navbar, hero (switch-pitch: name the competitor, lead with why someone would consider switching), comparison-table (5-8 dimensions, include 1 where competitor wins), 2-3 features-list spotlight (deep-dive differentiators), faq (comparison objections), cta
-SHOULD: text-block (honest assessment of competitor strengths), how-it-works with-images (migration guide)
-SKIP: pain, pricing, social-proof
+- **MUST:**
+  - navbar
+  - hero — switch-pitch: name the competitor, lead with why someone would consider switching
+  - comparison-table — 5-8 dimensions, include 1 where competitor wins
+  - 2-3 features-list spotlight — deep-dive differentiators
+  - faq — comparison objections
+  - cta
+- **SHOULD:**
+  - text-block — honest assessment of competitor strengths
+  - how-it-works with-images — migration guide
+- **SKIP:** pain, pricing, social-proof
 
 **Feature Tour Page** (6-8 sections):
-MUST: navbar, hero (outcome-first: what this feature lets you achieve), pain (scoped to this feature's problem), how-it-works with-images (walkthrough with wireframe per step), features-grid (capabilities, 3-4 cards), cta
-SHOULD: code-sample (technical audience), showcase (use case mini-stories), features-list (related features)
-SKIP: pricing, comparison-table, social-proof
+- **MUST:**
+  - navbar
+  - hero — outcome-first: what this feature lets you achieve
+  - pain — scoped to this feature's problem
+  - how-it-works with-images — walkthrough with wireframe per step
+  - features-grid — capabilities, 3-4 cards
+  - cta
+- **SHOULD:** code-sample (technical audience), showcase (use case mini-stories), features-list (related features)
+- **SKIP:** pricing, comparison-table, social-proof
 
 **Use Case Page** (5-7 sections):
-MUST: navbar, hero (audience-specific vocabulary), pain (3-4 audience-scoped pain points), features-grid or features-list (features through audience lens), cta (audience-specific language)
-SHOULD: how-it-works (their workflow), testimonials or results (same vertical), faq (audience objections)
-SKIP: pricing, comparison-table, code-sample
+- **MUST:**
+  - navbar
+  - hero — audience-specific vocabulary
+  - pain — 3-4 audience-scoped pain points
+  - features-grid or features-list — features through audience lens
+  - cta — audience-specific language
+- **SHOULD:** how-it-works (their workflow), testimonials or results (same vertical), faq (audience objections)
+- **SKIP:** pricing, comparison-table, code-sample
 
 ### Narrative Arcs
 
-**Homepage:** Recognition → Problem → Solution → Proof → Objections → Action
-**Product:** Clarity → Value → How it works → Proof → Action
-**Service:** Promise → Understanding → Process → Proof → Expertise → Action
-**Pricing:** Context → Plans → Comparison → Objections → Proof → Action
-**Customer Story:** Hook → Challenge → Solution → Results → Broader proof → Action
-**Competitor:** Switch Pitch → Quick Comparison → Deep Differentiators → Honest Assessment → Migration → Objections → Action
-**Feature Tour:** Outcome Promise → Problem Scoped → Walkthrough → Capabilities → Use Cases → Related → Action
-**Use Case:** Audience Recognition → Their Pain → How It Works for Them → Features (Their Lens) → Proof (Their Peers) → Objections → Action
+- **Homepage:** Recognition → Problem → Solution → Proof → Objections → Action
+- **Product:** Clarity → Value → How it works → Proof → Action
+- **Service:** Promise → Understanding → Process → Proof → Expertise → Action
+- **Pricing:** Context → Plans → Comparison → Objections → Proof → Action
+- **Customer Story:** Hook → Challenge → Solution → Results → Broader proof → Action
+- **Competitor:** Switch Pitch → Quick Comparison → Deep Differentiators → Honest Assessment → Migration → Objections → Action
+- **Feature Tour:** Outcome Promise → Problem Scoped → Walkthrough → Capabilities → Use Cases → Related → Action
+- **Use Case:** Audience Recognition → Their Pain → How It Works for Them → Features (Their Lens) → Proof (Their Peers) → Objections → Action
 
 ---
 
