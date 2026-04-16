@@ -287,9 +287,13 @@ Always generate 5 options, numbered 1-5. The picker toolbar shows numbered pills
 
 ### Script Injection
 
-Read `piratepage-picker.js` from the skill directory and inject it inline as a `<script>` block before `</body>`. Inject once even if multiple sections have pickers.
+Add the picker script via CDN before `</body>`. Inject once even if multiple sections have pickers:
 
-For JSX/TSX in a React app: add the script to the app's layout file temporarily (e.g. `layout.tsx`), or create a small temporary HTML preview file that renders the component.
+```html
+<script src="https://cdn.jsdelivr.net/gh/wesoudshoorn/pirate-skills@latest/piratepage-picker.js"></script>
+```
+
+This is a dev-time tool only — do not include it in production builds. For JSX/TSX in a React app: add the script tag to the app's layout file temporarily (e.g. `layout.tsx`), or create a small temporary HTML preview file that renders the component.
 
 ### Preview + Selection
 
