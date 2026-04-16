@@ -78,7 +78,7 @@ If no language detected, default to English without asking.
 
 These force you to think through positioning before any copy is generated. You can't skip them. They're what makes the output good.
 
-From the extracted content, pre-fill all 9 answers as best guesses. Present in **3 batches** via AskUserQuestion. For each question show the pre-filled answer with options: A) This is right, B) Needs tweaking, C) Let me rewrite.
+From the extracted content, pre-fill all 9 answers as best guesses. Present in **3 batches**. For each batch, use a single `AskUserQuestion` call that shows the questions with their pre-filled answers and asks the user to respond A/B/C for each. **Do NOT output the questions as regular text — they MUST be inside the AskUserQuestion prompt so the user gets an interactive input field.** Wait for the user's response before presenting the next batch.
 
 **Batch 1 — Identity:**
 1. **What is your product?** Brief, plain-language description.
