@@ -287,10 +287,23 @@ Always generate 5 options, numbered 1-5. The picker toolbar shows numbered pills
 
 ### Script Injection
 
-Add the picker script via CDN before `</body>`. Inject once even if multiple sections have pickers:
+Add the picker script before `</body>`. Inject once even if multiple sections have pickers.
+
+**Default — load from CDN** (simple, works in most apps):
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/wesoudshoorn/pirate-skills@latest/piratepage-picker.js"></script>
+```
+
+**Fallback — inline, if the target app has a CSP that blocks external scripts.**
+Symptoms: browser console shows `violates the following Content Security Policy directive: "script-src ..."` for the jsdelivr URL. Common in apps that explicitly configure CSP (middleware, `next.config`, or `<meta http-equiv>`).
+
+In that case, read `piratepage-picker.js` from the skill directory (same directory as `SKILL.md` — see detection snippet in "Reading Reference Files" above) and inject its contents inline instead:
+
+```html
+<script>
+{contents of piratepage-picker.js}
+</script>
 ```
 
 This is a dev-time tool only — do not include it in production builds. For JSX/TSX in a React app: add the script tag to the app's layout file temporarily (e.g. `layout.tsx`), or create a small temporary HTML preview file that renders the component.
